@@ -27,7 +27,7 @@ class FileSystem
         if (isset($extras['package']))
             $package = $extras['package'];
 
-        $mdata = wp_check_filetype($filename);
+        $mdata = wp_check_filetype($filepath);
 
         $ext = explode('.', $filepath);
         $ext = end($ext);
@@ -177,8 +177,8 @@ class FileSystem
 
         if(count($files) <1 ) return false;
 
-        $zip = new ZipArchive();
-        if ($zip->open($zipped, ZIPARCHIVE::CREATE) !== TRUE) {
+        $zip = new \ZipArchive();
+        if ($zip->open($zipped, \ZIPARCHIVE::CREATE) !== TRUE) {
             return false;
         }
         foreach ($files as $file) {
@@ -208,7 +208,7 @@ class FileSystem
         $filename = $filename ? $filename : end($tmp = explode('/', $url));
         $path = WPDM_CACHE_DIR . $filename;
         $fp = fopen($path, 'w');
-        if(!function_exists('curl_init')) WPDM_Messages::Error('<b>cURL</b> is not active or installed or not functioning properly in your server',1);
+        if(!function_exists('curl_init')) \WPDM_Messages::Error('<b>cURL</b> is not active or installed or not functioning properly in your server',1);
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_FILE, $fp);
         $data = curl_exec($ch);
@@ -246,7 +246,7 @@ class FileSystem
 
         if(strpos($path, '://')) return $path;
 
-        if (!file_exists($path)) $path = WPDM_BASE_DIR.'images/img-404.png';
+        if (!file_exists($path)) $path = WPDM_BASE_URL.'assets/images/img-404.png';
 
         $name_p = explode(".", $path);
         $ext = "." . end($name_p);

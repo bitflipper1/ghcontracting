@@ -4,6 +4,8 @@
  * Class WPDM_Crypt
  * from wpdm pro v4.1.9
  */
+
+
 class WPDM_Crypt
 {
 
@@ -11,8 +13,10 @@ class WPDM_Crypt
     {
 
         if (is_array($text)) $text = serialize($text);
-
+        if(defined('SECURE_AUTH_KEY'))
         $skey = substr(md5(SECURE_AUTH_KEY), 0, 16);
+        else
+        $skey = substr(md5(NONCE_SALT), 0, 16);
 
         if (function_exists('mcrypt_encrypt')) {
 
@@ -36,8 +40,10 @@ class WPDM_Crypt
     public static function Decrypt($ciphertext)
     {
 
-        $skey = substr(md5(SECURE_AUTH_KEY), 0, 16);
-
+        if(defined('SECURE_AUTH_KEY'))
+            $skey = substr(md5(SECURE_AUTH_KEY), 0, 16);
+        else
+            $skey = substr(md5(NONCE_SALT), 0, 16);
 
         if (function_exists('mcrypt_encrypt')) {
             $iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);

@@ -1,0 +1,3 @@
+title,description,link_label,password,quota,show_quota,show_counter,access,template,category,icon,preview,files,individual_file_download,cache_zip,download_count,page_template,uid,create_date,update_date
+Premium template,Description 1,Download,123456,0,0,0,"guest,administrator",link-template-default.php,"123,124",http://localhost/icons/box_download.png,http://localhost/app-icon.png,"abc.txt,another-file.doc,other-file.pdf",1,1,31,page-template-default.php,1,20160122,20160122
+Web developer iconset,Description 2,Download,,0,0,0,"guest,administrator,editor",link-template-default.php,"123,124",,http://localhost/app-icon.png,"abc.txt,another-file.doc,other-file.pdf",1,1,15,page-template-default.php,1,YYYYMMDD,YYYYMMDD

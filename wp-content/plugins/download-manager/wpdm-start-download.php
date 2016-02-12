@@ -11,7 +11,7 @@ $speed = apply_filters('wpdm_download_speed', $speed);
 
 get_currentuserinfo();
 
-if($package['post_status'] != 'publish') wp_die(__('Package is not available!', 'wpdmpro'));
+if(!in_array($package['post_status'], array('publish','private'))) wp_die(__('Package is not available!', 'wpdmpro'));
 
 if (wpdm_is_download_limit_exceed($package['ID'])) wp_die(__('Download Limit Exceeded', 'wpdmpro'));
 $files = \WPDM\Package::getFiles($package['ID']);
@@ -94,7 +94,10 @@ if ($fileCount > 1 && !$idvdl) {
 
     if (isset($_GET['ind'])) {
         $rfile = WPDM_Crypt::Decrypt($_GET['ind']);
-        if (in_array($rfile, $files)) $indfile = trim($rfile);
+        if(basename($rfile) != $rfile && !strpos($rfile,"://"))
+            $arfile = realpath($rfile);
+        else $arfile = $rfile;
+        if (in_array($rfile, $files) || in_array($arfile, $files)) $indfile = trim($rfile);
     } else if ($fileCount == 1) {
         $indfile = array_shift($files);
     }
@@ -116,11 +119,11 @@ if ($fileCount > 1 && !$idvdl) {
         die();
     }
 
-    if (file_exists(UPLOAD_DIR . $indfile))
+    if ($indfile != '' && file_exists(UPLOAD_DIR . $indfile))
         $filepath = UPLOAD_DIR . $indfile;
-    else if (file_exists($indfile))
+    else if ($indfile != '' && file_exists($indfile))
         $filepath = $indfile;
-    else if (file_exists(WP_CONTENT_DIR . end($tmp = explode("wp-content", $indfile)))) //path fix on site move
+    else if ($indfile != '' && file_exists(WP_CONTENT_DIR . end($tmp = explode("wp-content", $indfile)))) //path fix on site move
         $filepath = WP_CONTENT_DIR . end($tmp = explode("wp-content", $indfile));
     else {
         wpdm_download_data('file-not-found.txt', 'File not found or deleted from server');

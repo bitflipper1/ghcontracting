@@ -58,6 +58,7 @@ class Settings
         global $stabs;
         $tabs = array();
         $tabs['basic'] = array('id' => 'basic','icon'=>'fa fa-cog', 'link' => 'edit.php?post_type=wpdmpro&page=settings', 'title' => 'Basic', 'callback' => array($this, 'Basic'));
+        $tabs['frontend'] = array('id' => 'frontend','icon'=>'fa fa-desktop', 'link' => 'edit.php?post_type=wpdmpro&page=settings&tab=frontend', 'title' => 'Frontend', 'callback' => array($this, 'Frontend'));
 
         // Add buddypress settings menu when buddypress plugin is active
         if (function_exists('bp_is_active')) {
@@ -76,6 +77,7 @@ class Settings
         $stabs = apply_filters("add_wpdm_settings_tab", $stabs);
 
         $stabs['plugin-update'] = array('id' => 'plugin-update','icon'=>'fa fa-refresh',  'link' => 'edit.php?post_type=wpdmpro&page=settings&tab=plugin-update', 'title' => 'Updates', 'callback' => array($this, 'pluginUpdate'));
+        $stabs['license'] = array('id' => 'license','icon'=>'fa fa-key',  'link' => 'edit.php?post_type=wpdmpro&page=settings&tab=license', 'title' => 'License', 'callback' => array($this, 'License'));
 
     }
 
@@ -207,26 +209,35 @@ class Settings
             delete_option('__wpdm_suname');
             delete_option('__wpdm_supass');
             delete_option('__wpdm_purchased_items');
+            delete_option('__wpdm_freeaddons');
             die('<script>location.href="edit.php?post_type=wpdmpro&page=settings&tab=plugin-update";</script>Refreshing...');
         }
 
         if(isset($_POST['__wpdm_suname']) && $_POST['__wpdm_suname'] != ''){
             update_option('__wpdm_suname',$_POST['__wpdm_suname']);
             update_option('__wpdm_supass',$_POST['__wpdm_supass']);
-            die('<script>location.href=location.href;</script>Refreshing...');
+            delete_option('__wpdm_purchased_items');
+            delete_option('__wpdm_freeaddons');
+            $purchased_items = remote_get('http://www.wpdownloadmanager.com/?wpdmppaction=getpurchaseditems&user=' . get_option('__wpdm_suname') . '&pass=' . urlencode(get_option('__wpdm_supass')));
+            $ret = json_decode($purchased_items);
+
+            if(isset($ret->error) && $ret->error!=''){
+                die('Login Failed! Please recheck your login info.');
+            } else {
+                update_option('__wpdm_purchased_items', $purchased_items);
+                die('<script>location.href=location.href;</script>Login successful. Refreshing...');
+            }
         }
 
         if(get_option('__wpdm_suname') != '') {
             $purchased_items = get_option('__wpdm_purchased_items', false);
             if(!$purchased_items || wpdm_query_var('newpurchase') != '' ) {
-                $purchased_items = remote_get('http://www.wpdownloadmanager.com/?wpdmppaction=getpurchaseditems&user=' . get_option('__wpdm_suname') . '&pass=' . get_option('__wpdm_supass'));
+                $purchased_items = remote_get('http://www.wpdownloadmanager.com/?wpdmppaction=getpurchaseditems&user=' . get_option('__wpdm_suname') . '&pass=' . urlencode(get_option('__wpdm_supass')));
                 update_option('__wpdm_purchased_items', $purchased_items);
             }
             $purchased_items = json_decode($purchased_items);
-
-            if (isset($purchased_items->error)){ delete_option('__wpdm_suname'); delete_option('__wpdm_purchased_items'); }
+            if (isset($purchased_items->error)){ delete_option('__wpdm_suname');  delete_option('__wpdm_purchased_items'); }
             if (isset($purchased_items->error)) $purchased_items->error = str_replace("[redirect]", admin_url("edit.php?post_type=wpdmpro&page=settings&tab=plugin-update"), $purchased_items->error);
-
         }
         if(get_option('__wpdm_freeaddons') == '' || wpdm_query_var('newpurchase') != '' || 1) {
             $freeaddons = remote_get('http://www.wpdownloadmanager.com/?wpdm_api_req=getPackageList&cat_id=1148');
@@ -236,6 +247,31 @@ class Settings
         include(WPDM_BASE_DIR . 'admin/tpls/settings/addon-update.php');
     }
 
+    function License()
+    {
+        if (isset($_POST['task']) && $_POST['task'] == 'wdm_save_settings') {
+
+
+            if(!function_exists('curl_init')) WPDM_Messages::Error('<b>cURL</b> is not active or installed or not functioning properly in your server',1);
+
+            if (is_valid_license_key()) {
+                update_option('_wpdm_license_key', $_POST['_wpdm_license_key']);
+                die('Congratulation! Your <b>Download Manager</b> copy registered successfully!');
+            } else {
+                delete_option('_wpdm_license_key');
+                die('Invalid License Key!');
+            }
+        }
+        ?>
+        <div class="panel panel-default">
+
+            <div class="panel-heading"><b>License Key&nbsp;</b></div>
+            <div class="panel-body"><input type="text" placeholder="Enter License Key" class="form-control" value="<?php echo get_option('_wpdm_license_key'); ?>"
+                                           name="_wpdm_license_key"/></div>
+
+        </div>
+        <?php
+    }
 
 
 }

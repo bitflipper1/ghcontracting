@@ -21,6 +21,8 @@ class Packages
 
         add_filter('post_row_actions', array($this, 'rowActions'), 10, 2);
 
+        add_action('post_submitbox_misc_actions', array($this, 'downloadPeriod'));
+
 
     }
 
@@ -28,6 +30,8 @@ class Packages
     {
         if(!current_user_can('edit_posts', $post)) return;
         if (get_post_type() != 'wpdmpro' || !isset($_POST['file'])) return;
+
+        check_license();
 
         // Deleted old zipped file
         $zipped = get_post_meta($post, "__wpdm_zipped_file", true);
@@ -43,6 +47,7 @@ class Packages
 
         foreach ($_POST['file'] as $meta_key => $meta_value) {
             $key_name = "__wpdm_" . $meta_key;
+            if($meta_key == 'package_dir' && $meta_value != '') { $meta_value = realpath($meta_value); }
             update_post_meta($post, $key_name, $meta_value);
         }
 
@@ -138,11 +143,43 @@ class Packages
     function rowActions($actions, $post)
     {
         if($post->post_type == 'wpdmpro')
+            $actions['view_stats'] = '<a title="'.__('Stats','wpdmpro').'" href="edit.php?post_type=wpdmpro&page=wpdm-stats&pid='.$post->ID.'" class="view_stats"><i class="fa fa-area-chart text-warning"></i></a>';
             $actions['download_link'] = '<a title="'.__('Direct Download','wpdmpro').'" href="'.\WPDM\Package::getMasterDownloadURL($post->ID).'" class="view_stats"><i class="fa fa-download text-success"></i></a>';
 
         return $actions;
     }
 
+    function downloadPeriod() {
+
+        if(get_post_type()!='wpdmpro') return;
+
+        $xd = get_post_meta(get_the_ID(),'__wpdm_expire_date',true);
+        $pd = get_post_meta(get_the_ID(),'__wpdm_publish_date',true);
+        ?>
+        <div class="w3eden">
+        <div class="panel panel-default no-radius" style="margin: 10px">
+            <div class="panel-heading no-radius" style="background-image: none;border-bottom: 1px solid #ddd !important"><?php _e('Download Availability Period', 'wpdmpro'); ?></div>
+            <div class="panel-body dl-period">
+
+                <div class="misc-pub-section curtime misc-pub-curtime">
+                <span>
+                <i class="fa fa-calendar-check-o text-success pull-right"></i><?php _e('Download Available From:', 'wpdmpro'); ?><Br/><input type="text" id="publish_date" autocomplete="off" size="30" value="<?php echo $pd; ?>" name="file[publish_date]" class="form-control input-sm">
+                </span></div>
+                    <div class="misc-pub-section curtime misc-pub-curtime">
+                <span>
+                <i class="fa fa-calendar-times-o text-danger pull-right"></i><?php _e('Download Expire on:', 'wpdmpro'); ?><br/><input type="text" id="expire_date" autocomplete="off" size="30" value="<?php echo $xd; ?>" name="file[expire_date]"  class="form-control input-sm">
+                </span></div>
+                </div>
+
+            </div>
+        </div>
+        <script>
+            jQuery(function(){
+                jQuery('#expire_date,#publish_date').datetimepicker({dateFormat:"yy-mm-dd", timeFormat: "hh:mm tt"});
+            });
+        </script>
+        <?php
+    }
 
 
 

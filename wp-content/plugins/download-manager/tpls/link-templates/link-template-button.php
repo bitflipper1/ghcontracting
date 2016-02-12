@@ -1,2 +1,3 @@
-<!-- WPDM Link Template: Only Link/Button -->
+<!-- WPDM Link Template: Button Template -->
+
 [download_link]

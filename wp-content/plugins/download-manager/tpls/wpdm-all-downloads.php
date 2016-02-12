@@ -6,7 +6,11 @@ if(!isset($params['items_per_page'])) $params['items_per_page'] = 20;
 
 $column_positions = array();
 
-if(isset($params['jstable']) && $params['jstable']==1): ?>
+if(isset($params['jstable']) && $params['jstable']==1):
+
+  $datatable_col = ( isset($params['order_by']) && $params['order_by'] == 'title' ) ? '0' : '2';
+  $datatable_order = ( isset($params['order']) && $params['order'] == 'DESC' ) ? 'desc' : 'asc';
+  ?>
     <script src="<?php echo WPDM_BASE_URL.'assets/js/jquery.dataTables.min.js' ?>"></script>
     <link href="<?php echo WPDM_BASE_URL.'assets/css/jquery.dataTables.min.css' ?>" rel="stylesheet" />
     <style>
@@ -20,12 +24,12 @@ if(isset($params['jstable']) && $params['jstable']==1): ?>
             border-bottom: 0;
         }
 
-        #wpdmmydls-<?php echo $tid; ?>_filter input[type=search],
-        #wpdmmydls-<?php echo $tid; ?>_length select{
-            padding: 5px !important;
-            border-radius: 3px !important;
-            border: 1px solid #dddddd !important;
-        }
+    #wpdmmydls-<?php echo $tid; ?>_filter input[type=search],
+    #wpdmmydls-<?php echo $tid; ?>_length select{
+        padding: 5px !important;
+        border-radius: 3px !important;
+        border: 1px solid #dddddd !important;
+    }
 
         #wpdmmydls-<?php echo $tid; ?> .package-title{
             color:#36597C;
@@ -40,7 +44,7 @@ if(isset($params['jstable']) && $params['jstable']==1): ?>
     <script>
         jQuery(function($){
             $('#wpdmmydls-<?php echo $tid; ?>').dataTable({
-                "order": [[ 2, "desc" ]],
+                "order": [[ <?php echo $datatable_col; ?>, "<?php echo $datatable_order; ?>" ]],
                 "language": {
                     "lengthMenu": "<?php _e("Display _MENU_ downloads per page",'wpdmpro')?>",
                     "zeroRecords": "<?php _e("Nothing _START_ to - sorry",'wpdmpro')?>",
@@ -112,10 +116,11 @@ if(isset($params['jstable']) && $params['jstable']==1): ?>
 
                 $ext = "_blank";
                 $data = wpdm_custom_data(get_the_ID());
-                if(isset($data['files'])&&count($data['files'])){
-                    $tmpavar = $data['files'];
-                    $tmpvar = array_shift($tmpavar);
-                    $tmpvar = explode(".", $tmpvar);
+                $data['files'] = \WPDM\Package::getFiles(get_the_ID());
+                if(isset($data['files'])&&count($data['files']) > 0){
+                    $tfiles = $data['files'];
+                    $tfile = array_shift($tfiles);
+                    $tmpvar = explode(".",$tfile);
                     $ext = count($tmpvar) > 1 ? end($tmpvar) : $ext;
                 } else $data['files'] = array();
 
@@ -134,23 +139,23 @@ if(isset($params['jstable']) && $params['jstable']==1): ?>
                 if($ext==basename($ext)) $ext = plugins_url("download-manager/assets/file-type-icons/".$ext);
                 $download_link = DownloadLink($data, 0, array('popstyle' => 'popup'));
                 if($download_link != 'blocked'){
-                    ?>
+                ?>
 
-                    <tr>
-                        <td style="background-image: url('<?php echo $ext ; ?>');background-size: 32px;background-position: 5px 8px;background-repeat:  no-repeat;padding-left: 43px;line-height: normal;">
-                            <a class="package-title" href='<?php echo the_permalink(); ?>'><?php the_title(); ?></a><br/>
-                            <small><i class="fa fa-folder"></i> &nbsp; <?php echo count($data['files']); ?> <?php _e('files','wpdmpro'); ?> &nbsp;&nbsp;
-                                <i class="fa fa-download"></i> &nbsp; <?php echo isset($data['download_count'])?$data['download_count']:0; ?>
-                                <?php echo isset($data['download_count']) && $data['download_count'] > 1 ?  __('downloads','wpdmpro') : __('download','wpdmpro'); ?><br/>
-                                <span class="hidden-md hidden-lg"><?php echo $cats; ?></br></span>
-                                <span class="hidden-md hidden-lg hidden-sm"><?php echo get_the_date(); ?></span>
-                            </small>
-                        </td>
-                        <td class="hidden-sm hidden-xs"><?php echo $cats; ?></td>
-                        <td class="hidden-xs"><?php echo get_the_date(); ?></td>
-                        <td><?php echo $download_link; ?></td>
-                    </tr>
-                <?php } endwhile; ?>
+                <tr>
+                    <td style="background-image: url('<?php echo $ext ; ?>');background-size: 32px;background-position: 5px 8px;background-repeat:  no-repeat;padding-left: 43px;line-height: normal;">
+                        <a class="package-title" href='<?php echo the_permalink(); ?>'><?php the_title(); ?></a><br/>
+                        <small><i class="fa fa-folder"></i> &nbsp; <?php echo count($data['files']); ?> <?php _e('files','wpdmpro'); ?> &nbsp;&nbsp;
+                            <i class="fa fa-download"></i> &nbsp; <?php echo isset($data['download_count'])?$data['download_count']:0; ?>
+                            <?php echo isset($data['download_count']) && $data['download_count'] > 1 ?  __('downloads','wpdmpro') : __('download','wpdmpro'); ?><br/>
+                        <span class="hidden-md hidden-lg"><?php echo $cats; ?></br></span>
+                        <span class="hidden-md hidden-lg hidden-sm"><?php echo get_the_date(); ?></span>
+                        </small>
+                    </td>
+                    <td class="hidden-sm hidden-xs"><?php echo $cats; ?></td>
+                    <td class="hidden-xs"><?php echo get_the_date(); ?></td>
+                    <td><?php echo $download_link; ?></td>
+                </tr>
+            <?php } endwhile; ?>
             <?php if((!isset($params['jstable']) || $params['jstable']==0) && $total_files==0): ?>
                 <tr>
                     <td colspan="4" class="text-center">

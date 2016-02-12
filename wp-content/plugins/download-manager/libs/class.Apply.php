@@ -8,6 +8,7 @@ class Apply {
 
         add_filter('wpdm_custom_data', array( $this, 'SR_CheckPackageAccess' ), 10, 2);
 
+        //add_action('save_post', array( $this, 'SavePackage' ));
         add_action('publish_wpdmpro', array( $this, 'customPings' ));
 
 
@@ -21,14 +22,15 @@ class Apply {
         add_action("init", array($this, 'triggerDownload'));
         add_filter('widget_text', 'do_shortcode');
         add_action('query_vars', array( $this, 'DashboardPageVars' ));
-        add_action('init', array( $this, 'addWriteRules' ), 1, 0 );
+        add_action('init', array( $this, 'addWriteRules' ), 1, 999999 );
+        add_action('wp', array( $this, 'savePackage' ));
         add_action('init', array($this, 'Login'));
         add_action('init', array($this, 'Register'));
         add_action('wp', array($this, 'updateProfile'));
         add_action('wp', array($this, 'Logout'));
         add_action('request', array($this, 'rssFeed'));
         add_filter( 'ajax_query_attachments_args', array($this, 'usersMediaQuery') );
-        add_action( 'admin_init', array($this, 'sfbAccess'));
+        add_action( 'init', array($this, 'sfbAccess'));
         remove_action('wp_head', 'wp_generator');
         add_action( 'wp_head', array($this, 'addGenerator'), 9);
         add_filter('pre_get_posts', array($this, 'queryTag'));
@@ -39,6 +41,7 @@ class Apply {
     function AdminActions(){
         if(!is_admin()) return;
         add_action('save_post', array( $this, 'DashboardPages' ));
+        add_action( 'admin_init', array($this, 'sfbAccess'));
 
     }
 
@@ -67,10 +70,9 @@ class Apply {
             $page_name = get_post_field("post_name", $adb_page_id);
             add_rewrite_rule('^' . $page_name . '/(.+)/?', 'index.php?page_id=' . $adb_page_id . '&adb_page=$matches[1]', 'top');
         }
+        //if(is_404()) dd('404');
         //$wp_rewrite->flush_rules();
         //dd($wp_rewrite);
-
-
     }
 
     function DashboardPages($post_id){
@@ -100,16 +102,109 @@ class Apply {
     }
 
     function DashboardPageVars( $vars ){
-        array_push($vars, 'udb_page', 'adb_page');
+        array_push($vars, 'udb_page', 'adb_page','page_id');
         return $vars;
     }
 
+    /**
+     * @usage Save Package Data
+     */
+
+    function savePackage()
+    {
+        global  $current_user, $wpdb;
+
+        if(!is_user_logged_in()) return;
+        $allowed_roles = get_option('__wpdm_front_end_access');
+        $allowed_roles = maybe_unserialize($allowed_roles);
+        $allowed_roles = is_array($allowed_roles)?$allowed_roles:array();
+        $allowed =  array_intersect($allowed_roles, $current_user->roles);
+        if (isset($_REQUEST['act']) && in_array($_REQUEST['act'], array('_ap_wpdm', '_ep_wpdm')) && count($allowed) > 0) {
+
+            $pack = $_POST['pack'];
+            $pack['post_type'] = 'wpdmpro';
+
+            if ($_POST['act'] == '_ep_wpdm') {
+
+                $p = get_post($_POST['id']);
+                if($current_user->ID != $p->post_author && !current_user_can('manage_options')) return;
+
+                $hook = "edit_package_frontend";
+                $pack['ID'] = (int)$_POST['id'];
+                unset($pack['post_status']);
+                unset($pack['post_author']);
+                $post = get_post($pack['ID']);
+
+                $ostatus = $post->post_status=='publish'?'publish':get_option('__wpdm_ips_frontend','publish');
+                $status = isset($_POST['status']) && $_POST['status'] == 'draft'?'draft': $ostatus;
+                $pack['post_status'] = $status;
+                $id = wp_update_post($pack);
+                if(isset($_POST['cats']))
+                    $ret = wp_set_post_terms($pack['ID'], $_POST['cats'], 'wpdmcategory' );
+
+            }
+            if ($_POST['act'] == '_ap_wpdm'){
+                $hook = "create_package_frontend";
+                $status = isset($_POST['status']) && $_POST['status'] == 'draft'?'draft': get_option('__wpdm_ips_frontend','publish');
+                $pack['post_status'] = $status;
+                $pack['post_author'] = $current_user->ID;
+                $id = wp_insert_post($pack);
+                if(isset($_POST['cats']))
+                    wp_set_post_terms( $id, $_POST['cats'], 'wpdmcategory' );
+            }
+
+            // Save Package Meta
+            $cdata = get_post_custom($id);
+            foreach ($cdata as $k => $v) {
+                $tk = str_replace("__wpdm_", "", $k);
+                if (!isset($_POST['file'][$tk]) && $tk != $k)
+                    delete_post_meta($id, $k);
+
+            }
+
+            if(isset($_POST['file']['preview'])){
+                $preview = $_POST['file']['preview'];
+                $attachment_id = $wpdb->get_var($wpdb->prepare("SELECT ID FROM {$wpdb->posts} WHERE guid='%s';", $preview ));
+                set_post_thumbnail($id, $attachment_id);
+                unset($_POST['file']['preview']);
+            } else {
+                delete_post_thumbnail($id);
+            }
+
+            foreach ($_POST['file'] as $meta_key => $meta_value) {
+                $key_name = "__wpdm_" . $meta_key;
+                update_post_meta($id, $key_name, $meta_value);
+            }
+
+            update_post_meta($id, '__wpdm_masterkey', uniqid());
+
+            if (isset($_POST['reset_key']) && $_POST['reset_key'] == 1)
+                update_post_meta($id, '__wpdm_masterkey', uniqid());
+
+            //Mail to admin when new package is created
+            $message = file_get_contents(WPDM_BASE_DIR.'/email-templates/new-package-frontend.html');
+            $data = array('[date]' => date(get_option('date_format')),'[sitename]' => get_bloginfo('name'), '[title]' => $pack['post_title'], '[user]' => "<a href='".admin_url('user-edit.php?user_id='.$current_user->ID)."'>{$current_user->user_nicename}</a>", '[review_url]' => admin_url('post.php?action=edit&post='.$id));
+            $message = str_replace(array_keys($data), array_values($data), $message);
+            $headers[] = 'From: '.get_bloginfo('name').' <no-reply@'.str_replace("www.", "",$_SERVER['HTTP_HOST']).'>';
+            $headers[] = 'Content-Type: text/html; charset=UTF-8';
+            wp_mail(get_option('__wpdm_new_package_email', get_option('admin_email')), get_option('__wpdm_new_package_email_subject',"A package is waiting for your review!"), $message, $headers );
+
+            do_action($hook, $id, get_post($id));
+
+            $data = array('result' => $_POST['act'], 'id' => $id);
+
+            header('Content-type: application/json');
+            echo json_encode($data);
+            die();
+
+
+        }
+    }
 
     function Login()
     {
         global $wp_query, $post, $wpdb;
         if (!isset($_POST['wpdm_login'])) return;
-        if(!isset($_SESSION['login_try'])) $_SESSION['login_try'] = 0;
 
         $_SESSION['login_try'] = $_SESSION['login_try'] + 1;
         if($_SESSION['login_try'] > 10) wp_die("Slow Down!");
@@ -153,7 +248,14 @@ class Apply {
     function Register()
     {
         global $wp_query, $wpdb;
-        if (!isset($_POST['wpdm_reg']) || !get_option('users_can_register')) return;
+        if (!isset($_POST['wpdm_reg'])) return;
+
+        if(!get_option('users_can_register') && isset($_POST['wpdm_reg'])){
+            if(wpdm_is_ajax()) die(__('Error: User registration is disabled!','wpdmpro'));
+            else $_SESSION['reg_error'] = __('Error: User registration is disabled!','wpdmpro');
+            header("location: " . $_POST['permalink']);
+            die();
+        }
 
         extract($_POST['wpdm_reg']);
         $_SESSION['tmp_reg_info'] = $_POST['wpdm_reg'];
@@ -183,7 +285,7 @@ class Apply {
                 $auto_login = isset($user_pass) && $user_pass!=''?1:0;
                 $user_pass = isset($user_pass) && $user_pass!=''?$user_pass:wp_generate_password(12, false);
 
-                $errors = new WP_Error();
+                $errors = new \WP_Error();
 
                 do_action( 'register_post', $user_login, $user_email, $errors );
 
@@ -295,7 +397,7 @@ class Apply {
 
 
     /**
-     * @usage Process Download Request
+     * @usage Process Download Request from lock options
      */
     function triggerDownload()
     {
@@ -325,8 +427,12 @@ class Apply {
             $cpackage = apply_filters('before_download', $package);
             $lock = '';
             $package = $cpackage ? $cpackage : $package;
-
+            if (isset($package['email_lock']) && $package['email_lock'] == 1) $lock = 'locked';
             if (isset($package['password_lock']) && $package['password_lock'] == 1) $lock = 'locked';
+            if (isset($package['gplusone_lock']) && $package['gplusone_lock'] == 1) $lock = 'locked';
+            if (isset($package['twitterfollow_lock']) && $package['twitterfollow_lock'] == 1) $lock = 'locked';
+            if (isset($package['facebooklike_lock']) && $package['facebooklike_lock'] == 1) $lock = 'locked';
+            if (isset($package['tweet_lock']) && $package['tweet_lock'] == 1) $lock = 'locked';
             if (isset($package['captcha_lock']) && $package['captcha_lock'] == 1) $lock = 'locked';
 
             if ($lock !== 'locked')
@@ -397,11 +503,9 @@ class Apply {
         $roleids = array_keys($wp_roles->roles);
         $roles = get_option('_wpdm_file_browser_access',array('administrator'));
         $naroles = array_diff($roleids, $roles);
-
         foreach($roles as $role) {
             $role = get_role($role);
-            if(is_object($role))
-                $role->add_cap('access_server_browser');
+            $role->add_cap('access_server_browser');
         }
 
         foreach($naroles as $role) {
@@ -434,6 +538,7 @@ class Apply {
      */
     function queryTag($query)
     {
+
         if (is_tag()) {
             $post_type = get_query_var('post_type');
             if (!is_array($post_type))
@@ -459,6 +564,7 @@ class Apply {
         $template = '[excerpt_200]<br/><span class="oefooter">[create_date]</span><span class="oefooter">[download_count] Downloads</span><span class="oefooter">&#x2b07; [download_link]</span><style>.oefooter{ border: 1px solid #dddddd;padding: 5px 15px;font-size: 8pt;display: inline-block;margin-top: 3px;background: #f5f5f5; margin-right: 5px; } .oefooter a{ color: #3B88C3; font-weight: bold; } </style>';
         return \WPDM\Package::fetchTemplate($template, get_the_ID());
     }
+
 
 
 }

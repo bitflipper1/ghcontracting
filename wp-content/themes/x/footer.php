@@ -16,3 +16,11 @@
 ?>
 
 <?php x_get_view( x_get_stack(), 'wp', 'footer' ); ?>
+<style>
+
+UL.jqueryFileTree A {
+  font-size: 15px;
+  padding: 5px 2px !important;
+  
+}
+</style>

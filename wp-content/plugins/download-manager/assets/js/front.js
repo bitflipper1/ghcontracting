@@ -1,5 +1,14 @@
 jQuery(function ($) {
 
+    $('body').on('click', function (e) {
+        //did not click a popover toggle or popover
+        if ($(e.target).data('toggle') !== 'popover'
+            && $(e.target).parents('.popover.in').length === 0) {
+            $('.wpdm-download-link').popover('hide');
+            $('.wpdm-download-link').attr('data-ready', 'hide');
+        }
+    });
+
     $('.input-group input').on('focus', function () {
         $(this).parent().find('.input-group-addon').addClass('input-group-addon-active');
     });
@@ -12,7 +21,8 @@ jQuery(function ($) {
         $.post( wpdm_site_url, {
             wpdmfileid: $(this).data('pid'),
             wpdmfile: $(this).data('file'),
-            actioninddlpvr: $($(this).data('pass')).val()
+            actioninddlpvr: 1,
+            filepass: $($(this).data('pass')).val()
         }, function (res) {
             res = res.split('|');
             var ret = res[1];
@@ -24,7 +34,7 @@ jQuery(function ($) {
     $('body').on('click', '.wpdm-download-locked.pop-over', function () {
 
         var $dc = $($(this).attr('href'));
-        if ($(this).attr('data-ready') == undefined) {
+        if ($(this).attr('data-ready') == undefined || $(this).attr('data-ready') == 'hide') {
 
             $(this).popover({
                 placement: 'bottom',
@@ -51,6 +61,8 @@ jQuery(function ($) {
         return false;
     });
 
+
+
     $('body').on('click', '.wpdm-indir', function (e) {
         e.preventDefault();
         $('#xfilelist').load(location.href, {
@@ -60,12 +72,6 @@ jQuery(function ($) {
         });
     });
 
-    $('body').on('click', '.po-close', function () {
-
-        $('.wpdm-download-link').popover('hide');
-        $('.wpdm-download-link').attr('data-ready', 'hide');
-
-    });
 
 
     $('body').on('click', '.wpdm-btn-play', function (e) {

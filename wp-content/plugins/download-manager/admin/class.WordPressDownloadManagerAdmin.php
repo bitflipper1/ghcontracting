@@ -9,7 +9,11 @@ class WordPressDownloadManagerAdmin
         new \WPDM\admin\menus\Welcome();
         new \WPDM\admin\menus\Packages();
         new \WPDM\admin\menus\Categories();
+        new \WPDM\admin\menus\BulkImport();
+        new \WPDM\admin\menus\Templates();
+        new \WPDM\admin\menus\Subscribers();
         new \WPDM\admin\menus\Addons();
+        new \WPDM\admin\menus\Stats();
         new \WPDM\admin\menus\Settings();
 
         $this->Actions();
@@ -42,7 +46,7 @@ class WordPressDownloadManagerAdmin
             wp_enqueue_script('jquery-ui-slider');
             wp_enqueue_script('jquery-ui-sortable');
             wp_enqueue_script('jquery-ui-timepicker', WPDM_BASE_URL.'assets/js/jquery-ui-timepicker-addon.js',array('jquery','jquery-ui-core','jquery-ui-datepicker','jquery-ui-slider') );
-
+            wp_enqueue_style('icons', plugins_url() . '/download-manager/assets/css/icons.css');
             wp_enqueue_script('thickbox');
             wp_enqueue_style('thickbox');
             wp_enqueue_script('media-upload');
@@ -110,6 +114,11 @@ class WordPressDownloadManagerAdmin
         <script type="text/javascript">
             jQuery(function () {
 
+                jQuery('table.users tbody tr').each(function (index) {
+                    var uid = this.id.split('-')[1];
+                    var cell = jQuery(this).find('td.sports_data');
+                    jQuery('#' + this.id + ' .row-actions').append(' | <a href="edit.php?post_type=wpdmpro&page=wpdm-stats&type=pvdpu&uid=' + uid + '">Download Stats</a>');
+                });
 
                 jQuery('#TB_closeWindowButton').click(function () {
                     tb_remove();
@@ -128,6 +137,7 @@ class WordPressDownloadManagerAdmin
         wp_add_dashboard_widget('wpdm_dashboard_widget', 'WordPress Download Manager', array($this, 'widgetCallback'));
         global $wp_meta_boxes;
         $side_dashboard = $wp_meta_boxes['dashboard']['side']['core'];
+        if(!is_array($side_dashboard)) $side_dashboard = array();
         $wpdm_widget = array('wpdm_dashboard_widget' => $wp_meta_boxes['dashboard']['normal']['core']['wpdm_dashboard_widget']);
         unset($wp_meta_boxes['dashboard']['normal']['core']['wpdm_dashboard_widget']);
         $sorted_dashboard = array_merge($wpdm_widget, $side_dashboard);
@@ -138,6 +148,8 @@ class WordPressDownloadManagerAdmin
     {
 
         $meta_boxes = array(
+            'wpdm-attached-files' => array('title' => __('Attached Files', "wpdmpro"), 'callback' => array($this, 'Files'), 'position' => 'normal', 'priority' => 'core'),
+            'wpdm-attached-dir' => array('title' => __('Attach Dir', "wpdmpro"), 'callback' => 'wpmp_dir_browser_metabox', 'position' => 'side', 'priority' => 'core'),
             'wpdm-settings' => array('title' => __('Package Settings', "wpdmpro"), 'callback' => array($this, 'packageSettings'), 'position' => 'normal', 'priority' => 'low'),
             'wpdm-upload-file' => array('title' => __('Attach File', "wpdmpro"), 'callback' => array($this, 'uploadFiles'), 'position' => 'side', 'priority' => 'core'),
         );

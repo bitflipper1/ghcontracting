@@ -167,6 +167,114 @@ function remote_get($url)
 
 
 
+function is_valid_license_key()
+{
+    $key = isset($_POST['_wpdm_license_key']) ? $_POST['_wpdm_license_key'] : get_option('_wpdm_license_key');
+    update_option("__wpdm_nlc", strtotime('+7 days'));
+    $domain = strtolower(str_replace("www.", "", $_SERVER['HTTP_HOST']));
+    if (file_exists(dirname(__FILE__) . "/cache/wpdm_{$domain}")) {
+        $data = unserialize(base64_decode(file_get_contents(dirname(__FILE__) . "/cache/wpdm_{$domain}")));
+        if ($data[0] == md5($domain . $key) && $data[1] > time())
+            return true;
+        else
+            @unlink(dirname(__FILE__) . "/cache/wpdm_{$domain}");
+    }
+    $res = remote_post('http://www.wpdownloadmanager.com/', array('action' => 'wpdm_pp_ajax_call', 'execute' => 'verifylicense', 'domain' => $domain, 'key' => $key, 'product' => 'wpdmpro'));
+
+    if ($res === 'valid') {
+        file_put_contents(dirname(__FILE__) . "/cache/wpdm_{$domain}", base64_encode(serialize(array(md5($domain . $key), strtotime("+30 days")))));
+        return true;
+    }
+    if (get_option('settings_ok') == '')
+        update_option('settings_ok', strtotime('+30 days'));
+    else {
+        $page =  isset($_GET['page'])?$_GET['page']:"";
+        $time = (int)get_option('settings_ok');
+        if ($time < time() && $page == 'settings' && (!isset($_GET['tab']) || $_GET['tab'] != 'license')) {
+            die("<script>location.href='edit.php?post_type=wpdmpro&page=settings&tab=license';</script>");
+        }
+    }
+    return false;
+}
+
+
+function check_license()
+{
+    if((int)get_option('__wpdm_nlc') > time()) return true;
+    if ($_SERVER['HTTP_HOST'] == 'localhost') return true;
+    //if (!isAjax()) {
+        if (!is_valid_license_key()) {
+            $time = (int)get_option('settings_ok');
+            if ($time > time())
+                wp_die( "
+        <div id=\"warning\" class=\"error fade\"><p>
+        Please enter a valid <a href='edit.php?post_type=wpdmpro&page=settings&tab=license'>license key</a> for <b>Download Manager</b> 
+        </div>
+        " );
+            else
+                wp_die( "
+        <div id=\"warning\" class=\"error fade\"><p>
+        Trial period for <b>Download Manager</b> is expired.<br/>
+        Please enter a valid <a href='edit.php?post_type=wpdmpro&page=settings&tab=license'>license key</a> for <b>Download Manager</b> to reactivate it.<br/>
+        <a href='http://www.wpdownloadmanager.com/'>Buy your copy now only at 45.00 usd</a>
+        </div>
+        " );
+        }
+    //}
+}
+
+function wpdm_license_notice()
+{
+    if((int)get_option('__wpdm_nlc') > time()) return '';
+    if ($_SERVER['HTTP_HOST'] == 'localhost') return '';
+    //if (!isAjax()) {
+    if (!is_valid_license_key()) {
+        $time = (int)get_option('settings_ok');
+        if ($time > time())
+            return "
+        <div class='w3eden'><div id=\"warning\" class=\"alert alert-danger\"><p>
+        Please enter a valid <a href='edit.php?post_type=wpdmpro&page=settings&tab=license'>license key</a> for <b>Download Manager</b>
+        </div></div>
+        " ;
+        else
+            return ( "
+        <div class='w3eden'><div id=\"warning\" class=\"alert alert-danger\"><p>
+        Trial period for <b>Download Manager</b> is expired.<br/>
+        Please enter a valid <a style='font-weight: 900;text-decoration: underline' href='edit.php?post_type=wpdmpro&page=settings&tab=license'>license key</a> for Download Manager to reactivate it.<br/>
+        <a href='http://www.wpdownloadmanager.com/'>Buy your copy now only at 45.00 usd</a>
+        </div></div>
+        " );
+    }
+    //}
+    return '';
+}
+
+function wpdm_admin_license_notice(){
+    if(basename($_SERVER['REQUEST_URI']) !='plugins.php' && basename($_SERVER['REQUEST_URI']) !='index.php' && get_post_type()!= 'wpdmpro') return '';
+    if((int)get_option('__wpdm_nlc') > time()) return '';
+    if ($_SERVER['HTTP_HOST'] == 'localhost') return '';
+    //if (!isAjax()) {
+    if (!is_valid_license_key()) {
+        $time = (int)get_option('settings_ok');
+        if ($time > time())
+            echo "
+        <div id=\"error\" class=\"error\" style='border-left: 0 !important;border-top: 3px solid #dd3d36 !important;'><p>
+        Please enter a valid <a href='edit.php?post_type=wpdmpro&page=settings&tab=license'>license key</a> for <b>Download Manager</b></p>
+        </div>
+        " ;
+        else
+            echo ( "
+        <div id=\"error\" class=\"error\" style='border-left: 0 !important;border-top: 3px solid #dd3d36 !important;'><p>
+        Trial period for <b>Download Manager</b> is expired.<br/>
+        Please enter a valid <a style='font-weight: 900;text-decoration: underline' href='edit.php?post_type=wpdmpro&page=settings&tab=license'>license key</a> for Download Manager to reactivate it.<br/>
+        <a href='http://www.wpdownloadmanager.com/'>Buy your copy now only at 45.00 usd</a></p>
+        </div>
+        " );
+    }
+    //}
+}
+
+
 function wpdm_ajax_call_exec()
 {
     if (isset($_POST['action']) && $_POST['action'] == 'wpdm_ajax_call') {
@@ -215,31 +323,29 @@ function wpdm_check_update()
     foreach($latest as $plugin_dir => $latestv){
         $plugin_data = wpdm_plugin_data($plugin_dir);
 
-        $wpdmfree = $plugin_dir == 'download-manager' &&   version_compare($plugin_data['Version'], '3.0.0', '<');
-
-        if (version_compare($plugin_data['Version'], $latestv, '<') == true  && !$wpdmfree) {
+    if (version_compare($plugin_data['Version'], $latestv, '<') == true ) {
         $plugin_name = $plugin_data['Name'];
         $plugin_info_url = $plugin_data['PluginURI'];
         $trid = sanitize_title($plugin_name);
         $plugin_update_url =  admin_url('/edit.php?post_type=wpdmpro&page=settings&tab=plugin-update&plugin='.$plugin_dir); //'http://www.wpdownloadmanager.com/purchases/?'; //
-            if($trid!=''){
-                if ($page == 'plugins') {
-                    echo <<<NOTICE
+        if($trid!=''){
+        if ($page == 'plugins') {
+            echo <<<NOTICE
      <script type="text/javascript">
       jQuery(function(){
         jQuery('tr#{$trid}').addClass('update').after('<tr class="plugin-update-tr"><td colspan=3 class="plugin-update colspanchange"><div class="update-message">There is a new version of <strong>{$plugin_name}</strong> available. <b><a href="{$plugin_update_url}&v={$latestv}" style="color: #D54E21;margin-left:10px" target=_blank>[ Update v{$latestv} ]</a></b></div></td></tr>');
       });
       </script>
 NOTICE;
-                } else {
-                    echo <<<NOTICE
+        } else {
+            echo <<<NOTICE
      <script type="text/javascript">
       jQuery(function(){
         jQuery('.wrap > h2').after('<div class="updated error" style="margin:10px 0px;padding:10px;border:2px solid #dd3d36;border-radius:4px;background: #ffffff"><div style="float:left;"><b style="color:#dd3d36;">Important!</b><br/>There is a new version of <u>{$plugin_name}</u> available.</div> <a style="border-radius:2px; float:right;;color:#ffffff; background: #D54E21;padding:10px 15px" href="{$plugin_update_url}&v={$latestv}"  target=_blank>Update v{$latestv}  <i class="fa fa-long-arrow-right"></i></a><div style="clear:both"></div></div>');
          });
          </script>
 NOTICE;
-                }}
+        }}
     }
     }}
     if(wpdm_is_ajax()) die();
@@ -275,6 +381,7 @@ function wpdm_newversion_check(){
     <?php
 }
 
+add_action('admin_notices', 'wpdm_admin_license_notice');
 
 /**
  * Fontend style at tinymce

@@ -88,3 +88,501 @@
 [04-Feb-2016 17:37:36 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
 [04-Feb-2016 17:37:36 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
 [04-Feb-2016 17:37:36 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:02:07 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:02:07 UTC] PHP Stack trace:
+[05-Feb-2016 08:02:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:02:07 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:02:07 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:02:07 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:02:07 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:02:07 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:02:07 UTC] PHP Stack trace:
+[05-Feb-2016 08:02:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:02:07 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:02:07 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:02:07 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:02:07 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:02:07 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:02:07 UTC] PHP Stack trace:
+[05-Feb-2016 08:02:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:02:07 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:02:07 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:02:07 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:02:07 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:02:07 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:02:07 UTC] PHP Stack trace:
+[05-Feb-2016 08:02:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:02:07 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:02:07 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:02:07 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:02:07 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:02:07 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:02:07 UTC] PHP Stack trace:
+[05-Feb-2016 08:02:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:02:07 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:02:07 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:02:07 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:02:07 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:02:07 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:02:07 UTC] PHP Stack trace:
+[05-Feb-2016 08:02:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:02:07 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:02:07 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:02:07 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:02:07 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:02:07 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:02:07 UTC] PHP Stack trace:
+[05-Feb-2016 08:02:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:02:07 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:02:07 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:02:07 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:02:07 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:02:07 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:02:07 UTC] PHP Stack trace:
+[05-Feb-2016 08:02:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:02:07 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:02:07 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:02:07 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:02:07 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:02:07 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:02:07 UTC] PHP Stack trace:
+[05-Feb-2016 08:02:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:02:07 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:02:07 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:02:07 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:02:07 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:02:07 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:02:07 UTC] PHP Stack trace:
+[05-Feb-2016 08:02:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:02:07 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:02:07 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:02:07 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:02:07 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:02:07 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:33:57 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:33:57 UTC] PHP Stack trace:
+[05-Feb-2016 08:33:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:33:57 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:33:57 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:33:57 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:33:57 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:33:57 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:33:57 UTC] PHP Stack trace:
+[05-Feb-2016 08:33:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:33:57 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:33:57 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:33:57 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:33:57 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:33:57 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:33:57 UTC] PHP Stack trace:
+[05-Feb-2016 08:33:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:33:57 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:33:57 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:33:57 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:33:57 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:33:57 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:33:57 UTC] PHP Stack trace:
+[05-Feb-2016 08:33:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:33:57 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:33:57 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:33:57 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:33:57 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:33:57 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:33:57 UTC] PHP Stack trace:
+[05-Feb-2016 08:33:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:33:57 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:33:57 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:33:57 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:33:57 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:33:57 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:33:57 UTC] PHP Stack trace:
+[05-Feb-2016 08:33:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:33:57 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:33:57 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:33:57 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:33:57 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:33:57 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:33:57 UTC] PHP Stack trace:
+[05-Feb-2016 08:33:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:33:57 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:33:57 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:33:57 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:33:57 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:33:57 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:33:57 UTC] PHP Stack trace:
+[05-Feb-2016 08:33:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:33:57 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:33:57 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:33:57 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:33:57 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:33:57 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:33:57 UTC] PHP Stack trace:
+[05-Feb-2016 08:33:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:33:57 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:33:57 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:33:57 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:33:57 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[05-Feb-2016 08:33:57 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[05-Feb-2016 08:33:57 UTC] PHP Stack trace:
+[05-Feb-2016 08:33:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[05-Feb-2016 08:33:57 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[05-Feb-2016 08:33:57 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[05-Feb-2016 08:33:57 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[05-Feb-2016 08:33:57 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[05-Feb-2016 08:33:57 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[09-Feb-2016 06:58:01 UTC] PHP Warning:  file_get_contents(/home/ubuntu/workspace/wp-content/plugins/revslider/rs-plugin/css/dynamic-captions.css): failed to open stream: No such file or directory in /home/ubuntu/workspace/wp-content/plugins/revslider/inc_php/revslider_operations.class.php on line 694
+[09-Feb-2016 06:58:01 UTC] PHP Stack trace:
+[09-Feb-2016 06:58:01 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/admin-ajax.php:0
+[09-Feb-2016 06:58:01 UTC] PHP   2. do_action() /home/ubuntu/workspace/wp-admin/admin-ajax.php:89
+[09-Feb-2016 06:58:01 UTC] PHP   3. call_user_func_array:{/home/ubuntu/workspace/wp-includes/plugin.php:503}() /home/ubuntu/workspace/wp-includes/plugin.php:503
+[09-Feb-2016 06:58:01 UTC] PHP   4. RevSliderAdmin->onAjaxAction() /home/ubuntu/workspace/wp-includes/plugin.php:503
+[09-Feb-2016 06:58:01 UTC] PHP   5. RevOperations->getDynamicCss() /home/ubuntu/workspace/wp-content/plugins/revslider/revslider_admin.php:545
+[09-Feb-2016 06:58:01 UTC] PHP   6. file_get_contents() /home/ubuntu/workspace/wp-content/plugins/revslider/inc_php/revslider_operations.class.php:694
+[09-Feb-2016 06:59:49 UTC] PHP Warning:  file_get_contents(/home/ubuntu/workspace/wp-content/plugins/revslider/rs-plugin/css/dynamic-captions.css): failed to open stream: No such file or directory in /home/ubuntu/workspace/wp-content/plugins/revslider/inc_php/revslider_operations.class.php on line 694
+[09-Feb-2016 06:59:49 UTC] PHP Stack trace:
+[09-Feb-2016 06:59:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/admin-ajax.php:0
+[09-Feb-2016 06:59:49 UTC] PHP   2. do_action() /home/ubuntu/workspace/wp-admin/admin-ajax.php:89
+[09-Feb-2016 06:59:49 UTC] PHP   3. call_user_func_array:{/home/ubuntu/workspace/wp-includes/plugin.php:503}() /home/ubuntu/workspace/wp-includes/plugin.php:503
+[09-Feb-2016 06:59:49 UTC] PHP   4. RevSliderAdmin->onAjaxAction() /home/ubuntu/workspace/wp-includes/plugin.php:503
+[09-Feb-2016 06:59:49 UTC] PHP   5. RevOperations->getDynamicCss() /home/ubuntu/workspace/wp-content/plugins/revslider/revslider_admin.php:545
+[09-Feb-2016 06:59:49 UTC] PHP   6. file_get_contents() /home/ubuntu/workspace/wp-content/plugins/revslider/inc_php/revslider_operations.class.php:694
+[09-Feb-2016 07:10:04 UTC] PHP Warning:  file_get_contents(/home/ubuntu/workspace/wp-content/plugins/revslider/rs-plugin/css/dynamic-captions.css): failed to open stream: No such file or directory in /home/ubuntu/workspace/wp-content/plugins/revslider/inc_php/revslider_operations.class.php on line 694
+[09-Feb-2016 07:10:04 UTC] PHP Stack trace:
+[09-Feb-2016 07:10:04 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/admin-ajax.php:0
+[09-Feb-2016 07:10:04 UTC] PHP   2. do_action() /home/ubuntu/workspace/wp-admin/admin-ajax.php:89
+[09-Feb-2016 07:10:04 UTC] PHP   3. call_user_func_array:{/home/ubuntu/workspace/wp-includes/plugin.php:503}() /home/ubuntu/workspace/wp-includes/plugin.php:503
+[09-Feb-2016 07:10:04 UTC] PHP   4. RevSliderAdmin->onAjaxAction() /home/ubuntu/workspace/wp-includes/plugin.php:503
+[09-Feb-2016 07:10:04 UTC] PHP   5. RevOperations->getDynamicCss() /home/ubuntu/workspace/wp-content/plugins/revslider/revslider_admin.php:545
+[09-Feb-2016 07:10:04 UTC] PHP   6. file_get_contents() /home/ubuntu/workspace/wp-content/plugins/revslider/inc_php/revslider_operations.class.php:694
+[09-Feb-2016 07:18:03 UTC] PHP Warning:  file_get_contents(/home/ubuntu/workspace/wp-content/plugins/revslider/rs-plugin/css/dynamic-captions.css): failed to open stream: No such file or directory in /home/ubuntu/workspace/wp-content/plugins/revslider/inc_php/revslider_operations.class.php on line 694
+[09-Feb-2016 07:18:03 UTC] PHP Stack trace:
+[09-Feb-2016 07:18:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/admin-ajax.php:0
+[09-Feb-2016 07:18:03 UTC] PHP   2. do_action() /home/ubuntu/workspace/wp-admin/admin-ajax.php:89
+[09-Feb-2016 07:18:03 UTC] PHP   3. call_user_func_array:{/home/ubuntu/workspace/wp-includes/plugin.php:503}() /home/ubuntu/workspace/wp-includes/plugin.php:503
+[09-Feb-2016 07:18:03 UTC] PHP   4. RevSliderAdmin->onAjaxAction() /home/ubuntu/workspace/wp-includes/plugin.php:503
+[09-Feb-2016 07:18:03 UTC] PHP   5. RevOperations->getDynamicCss() /home/ubuntu/workspace/wp-content/plugins/revslider/revslider_admin.php:545
+[09-Feb-2016 07:18:03 UTC] PHP   6. file_get_contents() /home/ubuntu/workspace/wp-content/plugins/revslider/inc_php/revslider_operations.class.php:694
+[09-Feb-2016 07:18:17 UTC] PHP Warning:  file_get_contents(/home/ubuntu/workspace/wp-content/plugins/revslider/rs-plugin/css/dynamic-captions.css): failed to open stream: No such file or directory in /home/ubuntu/workspace/wp-content/plugins/revslider/inc_php/revslider_operations.class.php on line 694
+[09-Feb-2016 07:18:17 UTC] PHP Stack trace:
+[09-Feb-2016 07:18:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/admin-ajax.php:0
+[09-Feb-2016 07:18:17 UTC] PHP   2. do_action() /home/ubuntu/workspace/wp-admin/admin-ajax.php:89
+[09-Feb-2016 07:18:17 UTC] PHP   3. call_user_func_array:{/home/ubuntu/workspace/wp-includes/plugin.php:503}() /home/ubuntu/workspace/wp-includes/plugin.php:503
+[09-Feb-2016 07:18:17 UTC] PHP   4. RevSliderAdmin->onAjaxAction() /home/ubuntu/workspace/wp-includes/plugin.php:503
+[09-Feb-2016 07:18:17 UTC] PHP   5. RevOperations->getDynamicCss() /home/ubuntu/workspace/wp-content/plugins/revslider/revslider_admin.php:545
+[09-Feb-2016 07:18:17 UTC] PHP   6. file_get_contents() /home/ubuntu/workspace/wp-content/plugins/revslider/inc_php/revslider_operations.class.php:694
+[09-Feb-2016 07:39:30 UTC] PHP Warning:  file_get_contents(/home/ubuntu/workspace/wp-content/plugins/revslider/rs-plugin/css/dynamic-captions.css): failed to open stream: No such file or directory in /home/ubuntu/workspace/wp-content/plugins/revslider/inc_php/revslider_operations.class.php on line 694
+[09-Feb-2016 07:39:30 UTC] PHP Stack trace:
+[09-Feb-2016 07:39:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/admin-ajax.php:0
+[09-Feb-2016 07:39:30 UTC] PHP   2. do_action() /home/ubuntu/workspace/wp-admin/admin-ajax.php:89
+[09-Feb-2016 07:39:30 UTC] PHP   3. call_user_func_array:{/home/ubuntu/workspace/wp-includes/plugin.php:503}() /home/ubuntu/workspace/wp-includes/plugin.php:503
+[09-Feb-2016 07:39:30 UTC] PHP   4. RevSliderAdmin->onAjaxAction() /home/ubuntu/workspace/wp-includes/plugin.php:503
+[09-Feb-2016 07:39:30 UTC] PHP   5. RevOperations->getDynamicCss() /home/ubuntu/workspace/wp-content/plugins/revslider/revslider_admin.php:545
+[09-Feb-2016 07:39:30 UTC] PHP   6. file_get_contents() /home/ubuntu/workspace/wp-content/plugins/revslider/inc_php/revslider_operations.class.php:694
+[09-Feb-2016 09:40:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[09-Feb-2016 09:40:05 UTC] PHP Stack trace:
+[09-Feb-2016 09:40:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[09-Feb-2016 09:40:05 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[09-Feb-2016 09:40:05 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[09-Feb-2016 09:40:05 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[09-Feb-2016 09:40:05 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[09-Feb-2016 09:40:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[09-Feb-2016 09:40:05 UTC] PHP Stack trace:
+[09-Feb-2016 09:40:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[09-Feb-2016 09:40:05 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[09-Feb-2016 09:40:05 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[09-Feb-2016 09:40:05 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[09-Feb-2016 09:40:05 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[09-Feb-2016 09:40:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[09-Feb-2016 09:40:05 UTC] PHP Stack trace:
+[09-Feb-2016 09:40:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[09-Feb-2016 09:40:05 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[09-Feb-2016 09:40:05 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[09-Feb-2016 09:40:05 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[09-Feb-2016 09:40:05 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[09-Feb-2016 09:40:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[09-Feb-2016 09:40:05 UTC] PHP Stack trace:
+[09-Feb-2016 09:40:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[09-Feb-2016 09:40:05 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[09-Feb-2016 09:40:05 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[09-Feb-2016 09:40:05 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[09-Feb-2016 09:40:05 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[09-Feb-2016 09:40:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[09-Feb-2016 09:40:05 UTC] PHP Stack trace:
+[09-Feb-2016 09:40:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[09-Feb-2016 09:40:05 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[09-Feb-2016 09:40:05 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[09-Feb-2016 09:40:05 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[09-Feb-2016 09:40:05 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[09-Feb-2016 09:40:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[09-Feb-2016 09:40:05 UTC] PHP Stack trace:
+[09-Feb-2016 09:40:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[09-Feb-2016 09:40:05 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[09-Feb-2016 09:40:05 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[09-Feb-2016 09:40:05 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[09-Feb-2016 09:40:05 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[09-Feb-2016 09:40:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[09-Feb-2016 09:40:05 UTC] PHP Stack trace:
+[09-Feb-2016 09:40:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[09-Feb-2016 09:40:05 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[09-Feb-2016 09:40:05 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[09-Feb-2016 09:40:05 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[09-Feb-2016 09:40:05 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[09-Feb-2016 09:40:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[09-Feb-2016 09:40:05 UTC] PHP Stack trace:
+[09-Feb-2016 09:40:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[09-Feb-2016 09:40:05 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[09-Feb-2016 09:40:05 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[09-Feb-2016 09:40:05 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[09-Feb-2016 09:40:05 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[09-Feb-2016 09:40:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[09-Feb-2016 09:40:05 UTC] PHP Stack trace:
+[09-Feb-2016 09:40:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[09-Feb-2016 09:40:05 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[09-Feb-2016 09:40:05 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[09-Feb-2016 09:40:05 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[09-Feb-2016 09:40:05 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[09-Feb-2016 09:40:05 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[09-Feb-2016 09:40:05 UTC] PHP Stack trace:
+[09-Feb-2016 09:40:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[09-Feb-2016 09:40:05 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[09-Feb-2016 09:40:05 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[09-Feb-2016 09:40:05 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[09-Feb-2016 09:40:05 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[09-Feb-2016 09:40:05 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:40:22 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:40:22 UTC] PHP Stack trace:
+[11-Feb-2016 06:40:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:40:22 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:40:22 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:40:22 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:40:22 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:40:22 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:40:22 UTC] PHP Stack trace:
+[11-Feb-2016 06:40:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:40:22 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:40:22 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:40:22 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:40:22 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:40:22 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:40:22 UTC] PHP Stack trace:
+[11-Feb-2016 06:40:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:40:22 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:40:22 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:40:22 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:40:22 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:40:22 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:40:22 UTC] PHP Stack trace:
+[11-Feb-2016 06:40:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:40:22 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:40:22 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:40:22 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:40:22 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:40:22 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:40:22 UTC] PHP Stack trace:
+[11-Feb-2016 06:40:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:40:22 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:40:22 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:40:22 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:40:22 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:40:22 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:40:22 UTC] PHP Stack trace:
+[11-Feb-2016 06:40:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:40:22 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:40:22 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:40:22 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:40:22 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:40:22 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:40:22 UTC] PHP Stack trace:
+[11-Feb-2016 06:40:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:40:22 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:40:22 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:40:22 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:40:22 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:40:22 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:40:22 UTC] PHP Stack trace:
+[11-Feb-2016 06:40:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:40:22 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:40:22 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:40:22 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:40:22 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:40:22 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:40:22 UTC] PHP Stack trace:
+[11-Feb-2016 06:40:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:40:22 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:40:22 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:40:22 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:40:22 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:40:22 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:40:22 UTC] PHP Stack trace:
+[11-Feb-2016 06:40:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:40:22 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:40:22 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:40:22 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:40:22 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:40:22 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:43:50 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:43:50 UTC] PHP Stack trace:
+[11-Feb-2016 06:43:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:43:50 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:43:50 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:43:50 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:43:50 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:43:50 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:43:50 UTC] PHP Stack trace:
+[11-Feb-2016 06:43:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:43:50 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:43:50 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:43:50 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:43:50 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:43:50 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:43:50 UTC] PHP Stack trace:
+[11-Feb-2016 06:43:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:43:50 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:43:50 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:43:50 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:43:50 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:43:50 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:43:50 UTC] PHP Stack trace:
+[11-Feb-2016 06:43:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:43:50 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:43:50 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:43:50 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:43:50 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:43:50 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:43:50 UTC] PHP Stack trace:
+[11-Feb-2016 06:43:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:43:50 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:43:50 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:43:50 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:43:50 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:43:50 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:43:50 UTC] PHP Stack trace:
+[11-Feb-2016 06:43:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:43:50 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:43:50 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:43:50 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:43:50 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:43:50 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:43:50 UTC] PHP Stack trace:
+[11-Feb-2016 06:43:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:43:50 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:43:50 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:43:50 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:43:50 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:43:50 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:43:50 UTC] PHP Stack trace:
+[11-Feb-2016 06:43:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:43:50 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:43:50 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:43:50 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:43:50 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:43:50 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:43:50 UTC] PHP Stack trace:
+[11-Feb-2016 06:43:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:43:50 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:43:50 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:43:50 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:43:50 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246
+[11-Feb-2016 06:43:50 UTC] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php on line 246
+[11-Feb-2016 06:43:50 UTC] PHP Stack trace:
+[11-Feb-2016 06:43:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-admin/post-new.php:0
+[11-Feb-2016 06:43:50 UTC] PHP   2. include() /home/ubuntu/workspace/wp-admin/post-new.php:80
+[11-Feb-2016 06:43:50 UTC] PHP   3. do_meta_boxes() /home/ubuntu/workspace/wp-admin/edit-form-advanced.php:627
+[11-Feb-2016 06:43:50 UTC] PHP   4. call_user_func:{/home/ubuntu/workspace/wp-admin/includes/template.php:1090}() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   5. __lambda_func() /home/ubuntu/workspace/wp-admin/includes/template.php:1090
+[11-Feb-2016 06:43:50 UTC] PHP   6. x_create_meta_box() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php(34) : runtime-created function:1
+[11-Feb-2016 06:43:50 UTC] PHP   7. in_array() /home/ubuntu/workspace/wp-content/themes/x/framework/functions/global/admin/meta/setup.php:246

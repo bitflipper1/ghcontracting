@@ -122,10 +122,11 @@ class ShortCodes
         return $data;
     }
 
-    function Packages($params = array('items_per_page' => 10, 'title' => false, 'desc' => false, 'order_field' => 'date', 'order' => 'desc', 'paging' => false, 'toolbar' => 1, 'template' => '','cols'=>3, 'colspad'=>2, 'colsphone' => 1))
+    function Packages($params = array('items_per_page' => 10, 'title' => false, 'desc' => false, 'order_by' => 'date', 'order' => 'desc', 'paging' => false, 'toolbar' => 1, 'template' => '','cols'=>3, 'colspad'=>2, 'colsphone' => 1, 'tags' => '', 'categorirs' => '', 'year' => '', 'month' => ''))
     {
-
-        $defaults = array('items_per_page' => 10, 'title' => false, 'desc' => false, 'order_field' => 'date', 'order' => 'desc', 'paging' => false, 'toolbar' => 1, 'template' => 'link-template-panel','cols'=>3, 'colspad'=>2, 'colsphone' => 1);
+        $params['order_by']  = isset($params['order_field']) && $params['order_field'] != '' && !isset($params['order_by'])?$params['order_field']:$params['order_by'];
+        $scparams = $params;
+        $defaults = array('items_per_page' => 10, 'title' => false, 'desc' => false, 'order_by' => 'date', 'order' => 'desc', 'paging' => false, 'toolbar' => 1, 'template' => 'link-template-panel','cols'=>3, 'colspad'=>2, 'colsphone' => 1);
         $params = shortcode_atts($defaults, $params, 'wpdm_packages' );
         if(is_array($params))
             extract($params);
@@ -141,6 +142,7 @@ class ShortCodes
 
         global $wpdb, $current_user, $post, $wp_query;
 
+        if(isset($order_by) && !isset($order_field)) $order_field = $order_by;
         $order_field = isset($order_field) ? $order_field : 'date';
         $order_field = isset($_GET['orderby']) ? $_GET['orderby'] : $order_field;
         $order = isset($order) ? $order : 'desc';
@@ -155,11 +157,34 @@ class ShortCodes
             'include_children' => false,
         );
 
+        if(isset($scparams['month']) && $scparams['month'] != '') $params['monthnum'] = $scparams['month'];
+        if(isset($scparams['year']) && $scparams['year'] != '') $params['year'] = $scparams['year'];
+        if(isset($scparams['day']) && $scparams['day'] != '') $params['day'] = $scparams['day'];
+        if(isset($scparams['search']) && $scparams['search'] != '') $params['s'] = $scparams['search'];
+        if(isset($scparams['tag']) && $scparams['tag'] != '') $params['tag'] = $scparams['tag'];
+        if(isset($scparams['tag_id']) && $scparams['tag_id'] != '') $params['tag_id'] = $scparams['tag_id'];
+        if(isset($scparams['tag__and']) && $scparams['tag__and'] != '') $params['tag__and'] = explode(",",$scparams['tag__and']);
+        if(isset($scparams['tag__in']) && $scparams['tag__in'] != '') $params['tag__in'] = explode(",",$scparams['tag__in']);
+        if(isset($scparams['tag__not_in']) && $scparams['tag__not_in'] != '') $params['tag__not_in'] = explode(",",$scparams['tag__not_in']);
+        if(isset($scparams['tag_slug__and']) && $scparams['tag_slug__and'] != '') $params['tag_slug__and'] = explode(",",$scparams['tag_slug__and']);
+        if(isset($scparams['tag_slug__in']) && $scparams['tag_slug__in'] != '') $params['tag_slug__in'] = explode(",",$scparams['tag_slug__in']);
+        if(isset($scparams['categories']) && $scparams['categories'] != '') {
+            $operator = isset($scparams['operator'])?$scparams['operator']:'OR';
+            $params['tax_query'] = array(array(
+                'taxonomy' => 'wpdmcategory',
+                'field' => 'slug',
+                'terms' => explode(",",$scparams['categories']),
+                'include_children' => ( isset($scparams['include_children']) && $scparams['include_children'] != '' )?$scparams['include_children']: false,
+                'operator' => $operator
+            ));
+        }
+
+
         if (get_option('_wpdm_hide_all', 0) == 1) {
             $params['meta_query'] = array(
                 array(
                     'key' => '__wpdm_access',
-                    'value' => 'guest',
+                    'value' => '"guest"',
                     'compare' => 'LIKE'
                 )
             );
@@ -269,7 +294,7 @@ class ShortCodes
         }
 
         $template = isset($params['template'])?$params['template']:get_post_meta($id,'__wpdm_template', true);
-        if($template == '') $template = 'link-template-default.php';
+        if($template == '') $template = 'link-template-calltoaction3.php';
         return "<div class='w3eden'>" . \WPDM\Package::fetchTemplate($template, $id, 'link') . "</div>";
     }
 

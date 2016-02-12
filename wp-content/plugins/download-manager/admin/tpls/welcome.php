@@ -217,135 +217,135 @@
 
 
     <div class="container-fluid" style="margin-top: 10px;max-width: 1200px">
-         <div class="row">
-             <div class="col-md-12">
-                 <div class="well text-center">
-                     <img src="<?php echo WPDM_BASE_URL; ?>assets/images/wpdm-welcome.png" style="max-width: 100%" />
-                 </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well text-center">
+                    <img src="<?php echo WPDM_BASE_URL; ?>assets/images/wpdm-welcome.png" style="max-width: 100%" />
+                </div>
 
-             </div>
-             <?php //if(!function_exists('wpdm_tinymce')){ ?>
-             <div class="col-md-12 lead text-center">Lets install following add-ons to make your WordPress Download Manager more awesome<br/></div>
-                 <div class="col-md-4">
-                     <div class="panel panel-default">
-                         <div style="min-height: 130px;height: 130px;overflow: hidden" class="panel-body">
-                             <div class="media">
-                                 <a class="pull-left" href="#">
-                                     <img width="100px" src="http://cdn.wpdownloadmanager.com/wp-content/plugins/download-manager/cache/tinymce-button-200x200.png" class="img-rounded">
-                                 </a>
-                                 <div class="media-body">
-                                     <b><a target="_blank" href="http://www.wpdownloadmanager.com/download/advanced-tinymce-button/">Advanced TinyMCE button</a></b><br>
-                                     <p>Advanced TinyMCE button add-on will add a button with tinymce editor from where ...</p>
-                                 </div>
-                             </div>
-                         </div>
-                         <div style="line-height: 30px;" class="panel-footer">
-                             <div style="margin-top: -2px" class="pull-right">
-                                 <a style="border: 0;border-radius: 2px" href="#" data-target="#addonmodal" data-backdrop="true" rel="15665" data-toggle="modal" class="btn btn-sm btn-primary btn-install"><i class="fa fa-download"></i> &nbsp;Download &amp; Install</a>
-                             </div>
-                             <span style="font-size: 11px;" class="label label-info"><i class="fa fa-th"></i> &nbsp;642.87 KB</span>
-                         </div>
-                     </div>
-                 </div>
+            </div>
+            <?php //if(!function_exists('wpdm_tinymce')){ ?>
+            <div class="col-md-12 lead text-center">Lets install following add-ons to make your WordPress Download Manager more awesome<br/></div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div style="min-height: 130px;height: 130px;overflow: hidden" class="panel-body">
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img width="100px" src="http://cdn.wpdownloadmanager.com/wp-content/plugins/download-manager/cache/tinymce-button-200x200.png" class="img-rounded">
+                            </a>
+                            <div class="media-body">
+                                <b><a target="_blank" href="http://www.wpdownloadmanager.com/download/advanced-tinymce-button/">Advanced TinyMCE button</a></b><br>
+                                <p>Advanced TinyMCE button add-on will add a button with tinymce editor from where ...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="line-height: 30px;" class="panel-footer">
+                        <div style="margin-top: -2px" class="pull-right">
+                            <a style="border: 0;border-radius: 2px" href="#" data-target="#addonmodal" data-backdrop="true" rel="15665" data-toggle="modal" class="btn btn-sm btn-primary btn-install"><i class="fa fa-download"></i> &nbsp;Download &amp; Install</a>
+                        </div>
+                        <span style="font-size: 11px;" class="label label-info"><i class="fa fa-th"></i> &nbsp;642.87 KB</span>
+                    </div>
+                </div>
+            </div>
 
-             <div class="col-md-4" >
-                 <div class="panel panel-default">
-                     <div style="min-height: 130px;height: 130px;overflow: hidden" class="panel-body">
-                         <div class="media">
-                             <a class="pull-left" href="#">
-                                 <img width="100px" src="http://www.wpdownloadmanager.com/wp-content/plugins/download-manager/cache/wpdm-premium-package-200x200.png" class="img-rounded">
-                             </a>
-                             <div class="media-body">
-                                 <b><a href="http://www.wpdownloadmanager.com/download/premium-package-complete-digital-store-solution/">Premium Package &ndash; Complete Digital Store Solution</a></b><br>
-                                 <p>Premium Package "Complete Digital Store Solution" add-on add shopping cart feature...</p>
-                             </div>
-                         </div>
-                     </div>
-                     <div style="line-height: 30px;" class="panel-footer">
-                         <div style="margin-top: -2px" class="pull-right">
-                             <a style="border: 0;border-radius: 2px" href="#" data-target="#addonmodal" data-backdrop="true" rel="15671" data-toggle="modal" class="btn btn-sm btn-primary btn-install"><i class="fa fa-download"></i> &nbsp;Download &amp; Install</a>
-                         </div>
-                         <span style="font-size: 11px;" class="label label-info"><i class="fa fa-th"></i> &nbsp;482.11 KB</span>
-                     </div>
-                 </div>
-             </div>
+            <div class="col-md-4" >
+                <div class="panel panel-default">
+                    <div style="min-height: 130px;height: 130px;overflow: hidden" class="panel-body">
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img width="100px" src="http://www.wpdownloadmanager.com/wp-content/plugins/download-manager/cache/wpdm-premium-package-200x200.png" class="img-rounded">
+                            </a>
+                            <div class="media-body">
+                                <b><a href="http://www.wpdownloadmanager.com/download/premium-package-complete-digital-store-solution/">Premium Package &ndash; Complete Digital Store Solution</a></b><br>
+                                <p>Premium Package "Complete Digital Store Solution" add-on add shopping cart feature...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="line-height: 30px;" class="panel-footer">
+                        <div style="margin-top: -2px" class="pull-right">
+                            <a style="border: 0;border-radius: 2px" href="#" data-target="#addonmodal" data-backdrop="true" rel="15671" data-toggle="modal" class="btn btn-sm btn-primary btn-install"><i class="fa fa-download"></i> &nbsp;Download &amp; Install</a>
+                        </div>
+                        <span style="font-size: 11px;" class="label label-info"><i class="fa fa-th"></i> &nbsp;482.11 KB</span>
+                    </div>
+                </div>
+            </div>
 
-                 <div class="col-md-4">
-                     <div class="panel panel-default">
-                         <div style="min-height: 130px;height: 130px;overflow: hidden" class="panel-body">
-                             <div class="media">
-                                 <a class="pull-left" href="#">
-                                     <img width="100px" src="http://www.wpdownloadmanager.com/wp-content/plugins/download-manager/cache//wpdm-extended-shortcode-200x200.png" class="img-rounded">
-                                 </a>
-                                 <div class="media-body">
-                                     <b><a target="_blank" href="http://www.wpdownloadmanager.com/download/wpdm-extended-short-codes/">WPDM Extended Short-codes</a></b><br>
-                                     <p>WPDM Extended Short-codes add-on will give you better experience in using WordPr...</p>
-                                 </div>
-                             </div>
-                         </div>
-                         <div style="line-height: 30px;" class="panel-footer">
-                             <div style="margin-top: -2px" class="pull-right">
-                                 <a style="border: 0;border-radius: 2px" href="#" data-target="#addonmodal" data-backdrop="true" rel="15691" data-toggle="modal" class="btn btn-sm btn-primary btn-install"><i class="fa fa-download"></i> &nbsp;Download &amp; Install</a>
-                             </div>
-                             <span style="font-size: 11px;" class="label label-info"><i class="fa fa-th"></i> &nbsp;310.17 KB</span>
-                         </div>
-                     </div>
-                 </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div style="min-height: 130px;height: 130px;overflow: hidden" class="panel-body">
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img width="100px" src="http://www.wpdownloadmanager.com/wp-content/plugins/download-manager/cache//wpdm-extended-shortcode-200x200.png" class="img-rounded">
+                            </a>
+                            <div class="media-body">
+                                <b><a target="_blank" href="http://www.wpdownloadmanager.com/download/wpdm-extended-short-codes/">WPDM Extended Short-codes</a></b><br>
+                                <p>WPDM Extended Short-codes add-on will give you better experience in using WordPr...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="line-height: 30px;" class="panel-footer">
+                        <div style="margin-top: -2px" class="pull-right">
+                            <a style="border: 0;border-radius: 2px" href="#" data-target="#addonmodal" data-backdrop="true" rel="15691" data-toggle="modal" class="btn btn-sm btn-primary btn-install"><i class="fa fa-download"></i> &nbsp;Download &amp; Install</a>
+                        </div>
+                        <span style="font-size: 11px;" class="label label-info"><i class="fa fa-th"></i> &nbsp;310.17 KB</span>
+                    </div>
+                </div>
+            </div>
 
 
 
             <div style="clear: both"></div>
 
 
-             <?php //} ?>
+            <?php //} ?>
 
-             <div class="col-md-12">
-                 <div class="well">
-                     <div class="media">
-                         <div class="pull-right">
-                             <a href="http://www.wpdownloadmanager.com/downloads/free-add-ons/" class="btn btn-success">Explore Free Add-ons <i class="fa fa-angle-double-right"></i></a>
-                         </div>
-                         <div class="media-body">
-                             <b>Free Add-ons</b><br/>
-                             There are more free add-ons
-                         </div> </div>
-                 </div>
+            <div class="col-md-12">
+                <div class="well">
+                    <div class="media">
+                        <div class="pull-right">
+                            <a href="http://www.wpdownloadmanager.com/downloads/free-add-ons/" class="btn btn-success">Explore Free Add-ons <i class="fa fa-angle-double-right"></i></a>
+                        </div>
+                        <div class="media-body">
+                            <b>Free Add-ons</b><br/>
+                            There are more free add-ons
+                        </div> </div>
+                </div>
 
-                 <div class="alert alert-info">
-                     <a href="http://www.wpdownloadmanager.com/download/verse-wordpress-theme-for-digital-shop/" target="_blank"><i class="fa fa-gift" style="margin-right: 7px"></i> Verse – Free WordPress Theme for Digital Shops, Get it now! </a>
-                 </div>
+                <div class="alert alert-info">
+                    <a href="http://www.wpdownloadmanager.com/download/verse-wordpress-theme-for-digital-shop/" target="_blank"><i class="fa fa-gift" style="margin-right: 7px"></i> Verse – Free WordPress Theme for Digital Shops, Get it now! </a>
+                </div>
 
-             </div>
+            </div>
 
-             <div class="col-md-12 lead">
-                 <h3>What's New?</h3>
-                 What new with WordPress Download Manager Pro v2.8.4:
-             </div>
+            <div class="col-md-12 lead">
+                <h3>What's New?</h3>
+                What new with WordPress Download Manager Pro v4.5.0:
+            </div>
 
-             <div class="col-md-4 r">
+            <div class="col-md-4 r">
 
-                     <b>Captcha Lock</b>
-                     Now you also can lock your download using reCaptcha to protect it from bot access
+                <b>Captcha Lock</b>
+                Now you also can lock your download using reCaptcha to protect it from bot access
 
-             </div>
-             <div class="col-md-4 r">
-                 <b>Developer Friendly</b>
-                 Reorganized total codebase to make it more developer friendly
+            </div>
+            <div class="col-md-4 r">
+                <b>Developer Friendly</b>
+                Reorganized total codebase to make it more developer friendly
 
-             </div>
-             <div class="col-md-4 r">
+            </div>
+            <div class="col-md-4 r">
 
-                 <b>More Features</b>
-                 Improved admin UI and front-end short-code templates, one click updates for wpdm add-ons
-             </div>
+                <b>More Features</b>
+                Improved admin UI and front-end short-code templates, one click updates for wpdm add-ons
+            </div>
 
 
-             <div class="col-md-12 lead">
-                 <hr/>
-                 Lets start: Admin Menu <i class="fa fa-angle-double-right"></i> <a href="<?php echo admin_url('edit.php?post_type=wpdmpro'); ?>">Downloads</a> <i class="fa fa-angle-double-right"></i> <a href="<?php echo admin_url('post-new.php?post_type=wpdmpro'); ?>">Add New</a>
-             </div>
+            <div class="col-md-12 lead">
+                <hr/>
+                Lets start: Admin Menu <i class="fa fa-angle-double-right"></i> <a href="<?php echo admin_url('edit.php?post_type=wpdmpro'); ?>">Downloads</a> <i class="fa fa-angle-double-right"></i> <a href="<?php echo admin_url('post-new.php?post_type=wpdmpro'); ?>">Add New</a>
+            </div>
 
-         </div>
+        </div>
 
     </div>
     <div class="modal fade" id="addonmodal" tabindex="-1" role="dialog" aria-labelledby="addonmodalLabel" aria-hidden="true">

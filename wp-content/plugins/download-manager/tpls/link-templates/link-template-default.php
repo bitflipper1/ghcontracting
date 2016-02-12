@@ -1,12 +1,14 @@
 <!-- WPDM Link Template: Default Template -->
-
-
-<div class="wpdm-link-tpl link-btn [color]" data-durl="[download_url]" >
-    <div class="media">
-        <div class="pull-left">[icon]</div>
-        <div class="media-body"><strong class="ptitle">[title] <span class="label label-default" style="font-weight: 400;">[file_size]</span></strong>
-            <div><strong>[download_link_extended]</strong></div>
-        </div>
+<div class="col-md-6">
+<div class="thumbnail">
+<div class="media">
+    <a class="pull-left" href="[page_url]">
+    [thumb_60x60]
+    </a>
+    <div class="media-body">
+    <h4 class="media-heading" style="padding-top: 0px;border:0px;margin: 0px;">[page_link]</h4>    
+    [download_link] <i style="margin: 2px 0 0 5px;opacity:0.5" class="fa fa-th-large"></i> [file_size] <i style="margin: 2px 0 0 5px;opacity:0.5" class="fa fa-download-alt"></i> [download_count] downloads
     </div>
 </div>
-<div style="clear: both"></div>
+</div>
+</div>

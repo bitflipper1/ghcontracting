@@ -33,7 +33,12 @@
             <td><input size="10" class="form-control input-sm" style="width: 80px" type="number" name="file[quota]" value="<?php echo get_post_meta($post->ID,'__wpdm_quota',true); ?>" /></td>
         </tr>
 
-
+        <tr id="downliad_limit_row">
+            <td valign="top"><?php echo __('Download&nbsp;Limit:','wpdmpro'); ?></td>
+            <td><input size="10" style="width: 80px" class="form-control input-sm" type="number" name="file[download_limit_per_user]" value="<?php echo get_post_meta($post->ID,'__wpdm_download_limit_per_user', true); ?>" /> / <?php _e('user','wpdmpro'); ?> <i class="info fa fa-info" title="<?php _e('For non-registered members IP will be taken as ID','wpdmpro'); ?>"></i><br/>
+                <label><input type="checkbox" name="reset_udl" value="1"> <?php _e("Reset Limit for All Users","wpdmpro"); ?></label>
+            </td>
+        </tr>
 
         <tr id="view_count_row">
             <td><?php echo __('View&nbsp;Count:','wpdmpro'); ?></td>
@@ -45,6 +50,10 @@
             <td><input size="10" style="width: 80px" type="number" class="form-control input-sm" name="file[download_count]" value="<?php echo get_post_meta($post->ID,'__wpdm_download_count',true); ?>" /> <i class="info fa fa-info" title="Set/Reset Download Count for this package"></i></td>
         </tr>
 
+       <tr id="package_size_row">
+            <td><?php echo __('Package&nbsp;Size:','wpdmpro'); ?></td>
+            <td><input size="10" style="width: 80px" class="form-control input-sm" type="text" name="file[package_size]" value="<?php echo get_post_meta($post->ID,'__wpdm_package_size',true); ?>" /> <i class="info fa fa-info" title="Total size of included files with this package."></i></td>
+        </tr>
 
         <tr id="access_row">
             <td valign="top"><?php echo __('Allow Access:','wpdmpro'); ?></td>
@@ -77,7 +86,56 @@
                 </select>
             </td></tr>
 
+        <tr id="individual_file_download_row">
+            <td><?php echo __('Single File Download:','wpdmpro'); ?></td>
+            <td>
 
+
+                <div id="eid">
+                    <input type="radio" value="-1" id="radio3" name="file[individual_file_download]" <?php if(get_post_meta($post->ID,'__wpdm_individual_file_download', true) == -1 || get_post_meta($post->ID,'__wpdm_individual_file_download', true) == null) echo 'checked=checked';?> /> <label for="radio3"><?php _e("Use Global","wpdmpro"); ?> &nbsp; </label>
+                    <input type="radio" value="1" id="radio2" name="file[individual_file_download]" <?php checked(get_post_meta($post->ID,'__wpdm_individual_file_download', true),1);?> /> <label for="radio2"><?php _e("Enable","wpdmpro"); ?> &nbsp; </label>
+                    <input type="radio" value="0" id="radio1" name="file[individual_file_download]" <?php checked(get_post_meta($post->ID,'__wpdm_individual_file_download', true),0);?> /> <label for="radio1"><?php _e("Disable","wpdmpro"); ?></label>
+                    <i class="info fa fa-info" title="<?php _e('Enable/Disable single file download from multi-file package','wpdmpro'); ?>"></i>
+                </div>
+
+            </td>
+        </tr>
+
+        <tr id="cache_zip_row">
+            <td><?php echo __('Cache Zip File:','wpdmpro'); ?></td>
+            <td>
+
+
+                <div id="eid">
+                    <input type="radio" value="-1" id="radio3" name="file[cache_zip]" <?php if(get_post_meta($post->ID,'__wpdm_cache_zip', true) == -1 || get_post_meta($post->ID,'__wpdm_cache_zip', true) == null) echo 'checked=checked';?> /> <label for="radio3"><?php _e("Use Global","wpdmpro"); ?> &nbsp; </label>
+                    <input type="radio" value="1" id="radio2" name="file[cache_zip]" <?php checked(get_post_meta($post->ID,'__wpdm_cache_zip', true),1);?> /> <label for="radio2"><?php _e("Enable","wpdmpro"); ?> &nbsp; </label>
+                    <input type="radio" value="0" id="radio1" name="file[cache_zip]" <?php checked(get_post_meta($post->ID,'__wpdm_cache_zip', true),0);?> /> <label for="radio1"><?php _e("Disable","wpdmpro"); ?></label>
+                    <i class="info fa fa-info" title="<?php _e('Do you want to cache the zip file created from attached files','wpdmpro'); ?>"></i>
+                </div>
+
+            </td>
+        </tr>
+
+        <tr id="template_row">
+            <td><?php echo __('Link Template:','wpdmpro'); ?></td>
+            <td><?php
+
+                echo WPDM\admin\menus\Templates::Dropdown(array('name' => 'file[template]', 'id'=>'lnk_tpl', 'selected' => get_post_meta($post->ID,'__wpdm_template',true)));
+
+                ?>
+
+            </td>
+        </tr>
+
+
+        <tr id="page_template_row">
+            <td><?php echo __('Page Template:','wpdmpro'); ?></td>
+            <td><?php
+                echo WPDM\admin\menus\Templates::Dropdown(array('type'=>'page','name' => 'file[page_template]', 'id'=>'pge_tpl', 'selected' => get_post_meta($post->ID,'__wpdm_page_template',true)));
+                ?>
+
+            </td>
+        </tr>
         <?php if(isset($_GET['post'])&&$_GET['post']!=''){ ?>
             <tr>
                 <td><?php echo __('Master Key','wpdmpro'); ?></td>

@@ -51,6 +51,8 @@ class wpdm_categories_widget extends WP_Widget {
     function widget($args, $instance) {
         extract( $args );
         $title = apply_filters('widget_title', $instance['title']);
+        $parent = isset($instance['parent']) && $instance['parent'] >0 ?intval($instance['parent']):0;
+        $style = isset($instance['style'])?esc_attr($instance['style']):'flat';
         ?>
               <?php echo $before_widget; ?>
                   <?php if ( $title )
@@ -67,8 +69,8 @@ class wpdm_categories_widget extends WP_Widget {
                     'fields'            => 'all',
                     'slug'              => '',
                     'parent'            => '',
-                    'hierarchical'      => false,
-                    'child_of'          => 0,
+                    'hierarchical'      => ($style == 'flat'?false:true),
+                    'child_of'          => $parent,
                     'childless'         => false,
                     'get'               => '',
                     'name__like'        => '',
@@ -78,35 +80,74 @@ class wpdm_categories_widget extends WP_Widget {
                     'search'            => '',
                     'cache_domain'      => 'core'
                 );
-
                 $terms = get_terms("wpdmcategory", $args);
 
-
+        if($style == 'flat') {
             echo "<div class='w3eden'><div class='list-group'>";
-               foreach($terms as $term){
-               echo "<a href='".get_term_link($term)."'  class='list-group-item'><span class='badge'>{$term->count}</span>{$term->name}</a>\n";
-               }
+            foreach ($terms as $term) {
+                echo "<a href='" . get_term_link($term) . "'  class='list-group-item'><span class='badge'>{$term->count}</span>{$term->name}</a>\n";
+            }
 
-        echo "</div></div>\n";
+            echo "</div></div>\n";
+        } else {
 
+            function wpdm_categories_tree($parent = 0, $selected = array()){
+                $categories = get_terms( 'wpdmcategory' , array('hide_empty'=>0,'parent'=>$parent));
+                $checked = "";
+                foreach($categories as $category){
+                    if($selected){
+                        foreach($selected as $ptype){
+                            if($ptype->term_id==$category->term_id){$checked="checked='checked'";break;}else $checked="";
+                        }
+                    }
+                    echo '<li><a href="'.get_term_link($category).'"> '.$category->name.' </a>';
+                    $termchildren = get_term_children( $category->term_id, 'wpdmcategory' );
+                    if($termchildren) {
+                        echo "<ul>";
+                        wpdm_categories_tree($category->term_id, $selected);
+                        echo "</ul>";
+                    }
+                    echo "</li>";
+                }
+            }
+
+            echo "<ul class='wpdm-categories'>";
+            $cparent = $parent;
+            if($cparent!==0){
+                $cparent = get_term_by('slug', $cparent, 'wpdmcategory');
+                $cparent = $cparent->term_id;
+            }
+            wpdm_categories_tree($cparent, $terms);
+            echo "</ul>";
+        }
                echo $after_widget; ?>
         <?php
     }
 
     /** @see WP_Widget::update */
     function update($new_instance, $old_instance) {
-    $instance = $old_instance;
-    $instance['title'] = strip_tags($new_instance['title']);
-        return $instance;
+        return $new_instance;
     }
 
     /** @see WP_Widget::form */
     function form($instance) {
         $title = isset($instance['title'])?esc_attr($instance['title']):"";
+        $parent = isset($instance['parent'])?intval($instance['parent']):0;
+        $style = isset($instance['style'])?esc_attr($instance['style']):'flat';
         ?>
          <p>
           <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
           <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id('parent'); ?>"><?php _e('Parent:'); ?></label><br/>
+             <?php wpdm_dropdown_categories($this->get_field_name('parent'), $parent, $this->get_field_id('parent')); ?>
+        </p>
+        <p>
+            <label><?php _e('Style:'); ?></label><br/>
+            <label><input type="radio" name="<?php echo $this->get_field_name('style'); ?>" <?php checked('flat', $style); ?> value="flat"> Flat List</label><br/>
+            <label><input type="radio" name="<?php echo $this->get_field_name('style'); ?>" <?php checked('tree', $style); ?> value="tree"> Hierarchy List</label><br/>
+            <!-- label><input type="radio" name="<?php echo $this->get_field_name('style'); ?>" <?php checked('dropdown', $style); ?> value="dropdown"> Dropdown List</label></br -->
         </p>
         <?php 
     }
@@ -170,32 +211,8 @@ class wpdm_topdls_widget extends WP_Widget {
         </p>
         <p>
           <label for="<?php echo $this->get_field_id('sdc'); ?>"><?php _e('Link Template:'); ?></label>           
-          <?php
-                $tdr =  str_replace("modules","templates",dirname(__FILE__)).'/';
-                $ptemplates = scandir($tdr);
-                        
-            ?>
-          <select id="<?php echo $this->get_field_id('sdc'); ?>" name="<?php echo $this->get_field_name('sdc'); ?>">           
-            <?php
-            $ctpls = scandir(WPDM_BASE_DIR.'/templates/');
-                              array_shift($ctpls);
-                              array_shift($ctpls);
-                              $ptpls = $ctpls;
-                              foreach($ctpls as $ctpl){
-                                  $tmpdata = file_get_contents(WPDM_BASE_DIR.'/templates/'.$ctpl);
-                                  if(preg_match("/WPDM[\s]+Link[\s]+Template[\s]*:([^\-\->]+)/",$tmpdata, $matches)){                                 
-                
-            ?>
-            <option value="<?php echo $ctpl; ?>"  <?php echo $sdc==$ctpl?'selected=selected':''; ?>><?php echo $matches[1]; ?></option>
-            <?php    
-            }  
-            } 
-            if($templates = unserialize(get_option("_fm_link_templates",true))){ 
-              foreach($templates as $id=>$template) {  
-            ?>
-            <option value="<?php echo $id; ?>"  <?php echo ( $sdc==$id )?' selected ':'';  ?>><?php echo $template['title']; ?></option>
-            <?php } } ?>
-          </select> 
+
+            <?php echo \WPDM\admin\menus\Templates::Dropdown(array('name' => $this->get_field_name('sdc'), 'id' => $this->get_field_id('sdc'), 'selected' => $sdc)); ?>
           
         </p>
         <?php 
@@ -258,35 +275,9 @@ class wpdm_newpacks_widget extends WP_Widget {
           <input class="widefat" id="<?php echo $this->get_field_id('nop1'); ?>" name="<?php echo $this->get_field_name('nop1'); ?>" type="text" value="<?php echo $nop; ?>" />
         </p>
         <p>
-        <?php
-                $tdr =  str_replace("modules","templates",dirname(__FILE__)).'/';
-                $ptemplates = scandir($tdr);
-                        
-            ?>
-          <label for="<?php echo $this->get_field_id('sdc'); ?>"><?php _e('Link Template:'); ?></label>           
-          <select id="<?php echo $this->get_field_id('sdc'); ?>" name="<?php echo $this->get_field_name('sdc'); ?>">
-                                   
-            <?php
-            $ctpls = scandir(WPDM_BASE_DIR.'/templates/');
-                              array_shift($ctpls);
-                              array_shift($ctpls);
-                              $ptpls = $ctpls;
-                              foreach($ctpls as $ctpl){
-                                  $tmpdata = file_get_contents(WPDM_BASE_DIR.'/templates/'.$ctpl);
-                                  if(preg_match("/WPDM[\s]+Link[\s]+Template[\s]*:([^\-\->]+)/",$tmpdata, $matches)){                                 
-                
-            ?>
-            <option value="<?php echo $ctpl; ?>"  <?php echo $sdc==$ctpl?'selected=selected':''; ?>><?php echo $matches[1]; ?></option>
-            <?php    
-            }  
-            } 
-            if($templates = unserialize(get_option("_fm_link_templates",true))){ 
-              foreach($templates as $id=>$template) {  
-            ?>
-            <option value="<?php echo $id; ?>"  <?php echo ( $sdc==$id )?' selected ':'';  ?>><?php echo $template['title']; ?></option>
-            <?php } } ?>
-          </select> 
-          
+
+          <label for="<?php echo $this->get_field_id('sdc'); ?>"><?php _e('Link Template:'); ?></label>
+            <?php echo \WPDM\admin\menus\Templates::Dropdown(array('name' => $this->get_field_name('sdc'), 'id' => $this->get_field_id('sdc'), 'selected' => $sdc)); ?>
         </p>
         <?php 
     }
@@ -339,10 +330,10 @@ class wpdm_catpacks_widget extends WP_Widget {
 
     /** @see WP_Widget::form */
     function form($instance) {
-        $title = esc_attr($instance['title']);
-        $sdc3 = $instance['sdc3'];
-        $scat = esc_attr($instance['scat']);
-        $nop = esc_attr($instance['nop1']);
+        $title = isset($instance['title']) ? esc_attr($instance['title']):'';
+        $sdc3 = isset($instance['sdc3'])?$instance['sdc3']:0;
+        $scat = isset($instance['scat'])?esc_attr($instance['scat']):0;
+        $nop = isset($instance['nop1']) ?esc_attr($instance['nop1']):5;
         $args = array(
             'show_option_all'    => '',
             'show_option_none'   => '',
@@ -380,34 +371,10 @@ class wpdm_catpacks_widget extends WP_Widget {
           <input class="widefat" id="<?php echo $this->get_field_id('nop1'); ?>" name="<?php echo $this->get_field_name('nop1'); ?>" type="text" value="<?php echo $nop; ?>" />
         </p>
         <p>
-        <?php
-                $tdr =  str_replace("modules","templates",dirname(__FILE__)).'/';
-                $ptemplates = scandir($tdr);
-                        
-            ?>
-          <label for="<?php echo $this->get_field_id('sdc3'); ?>"><?php _e('Link Template:','wpdmpro'); ?></label>           
-          <select id="<?php echo $this->get_field_id('sdc3'); ?>" name="<?php echo $this->get_field_name('sdc3'); ?>">
-                                   
-            <?php
-            $ctpls = scandir(WPDM_BASE_DIR.'/templates/');
-                              array_shift($ctpls);
-                              array_shift($ctpls);
-                              $ptpls = $ctpls;
-                              foreach($ctpls as $ctpl){
-                                  $tmpdata = file_get_contents(WPDM_BASE_DIR.'/templates/'.$ctpl);
-                                  if(preg_match("/WPDM[\s]+Link[\s]+Template[\s]*:([^\-\->]+)/",$tmpdata, $matches)){                                 
-                
-            ?>
-            <option value="<?php echo $ctpl; ?>"  <?php echo $sdc3==$ctpl?'selected=selected':''; ?>><?php echo $matches[1]; ?></option>
-            <?php    
-            }  
-            } 
-            if($templates = unserialize(get_option("_fm_link_templates",true))){ 
-              foreach($templates as $id=>$template) {  
-            ?>
-            <option value="<?php echo $id; ?>"  <?php echo ( $sdc3==$id )?' selected ':'';  ?>><?php echo $template['title']; ?></option>
-            <?php } } ?>
-          </select> 
+
+          <label for="<?php echo $this->get_field_id('sdc3'); ?>"><?php _e('Link Template:','wpdmpro'); ?></label>
+            <?php echo \WPDM\admin\menus\Templates::Dropdown(array('name' => $this->get_field_name('sdc3'), 'id' => $this->get_field_id('sdc3'), 'selected' => $sdc3)); ?>
+
           
         </p>
         <?php 
@@ -429,13 +396,19 @@ class wpdm_packageinfo_widget extends WP_Widget {
         $title = apply_filters('widget_title', $instance['title']);
         $package_info = $instance['pinfo'];
         $package_info_labels = array(
-            'download_count' => 'Total Downloads',
-            'view_count' => 'Total Views',
-            'create_date' => 'Publish Date',
-            'update_date' => 'Last Updated',
-            'package_size' => 'Size',
+            'download_count' => __('Total Downloads','wpdmpro'),
+            'view_count' =>  __('Total Views','wpdmpro'),
+            'create_date' =>  __('Publish Date','wpdmpro'),
+            'update_date' =>  __('Last Updated','wpdmpro'),
+            'package_size' =>  __('Size','wpdmpro'),
         );
 
+        $package_info_icons = array(
+            'download_count' => 'download',
+            'view_count' =>  'eye',
+            'package_size' =>  'server',
+        );
+        $download_link = "";
         if(isset($package_info['download_link'])){
             unset($package_info['download_link']);
             $download_link  = "<tr><td colspan='2' class='text-center'>" . \WPDM\Package::downloadLink(get_the_ID()) . "</td>";
@@ -444,20 +417,40 @@ class wpdm_packageinfo_widget extends WP_Widget {
 
         ?>
         <?php echo $before_widget; ?>
-        <?php if ( $title )
+        <?php if ( isset($title) )
             echo $before_title . $title . $after_title;
-        echo "<div class='w3eden'><table class='table table-striped' style='font-size: 9pt'>";
+        if(isset($instance['table']) && $instance['table'] == 1) {
+            echo "<div class='w3eden'><table class='table table-striped table-bordered' style='font-size: 9pt'>";
 
-        foreach($package_info as $index => $v){
-            if($index=='create_date')
-            echo "<tr><td>{$package_info_labels[$index]}</td><td>".get_the_date()."</td></tr>";
-            if($index=='update_date')
-            echo "<tr><td>{$package_info_labels[$index]}</td><td>".get_the_modified_date()."</td></tr>";
-            else
-            echo "<tr><td>{$package_info_labels[$index]}</td><td>".get_post_meta(get_the_ID(), '__wpdm_'.$index, true)."</td></tr>";
+            if (is_array($package_info)) {
+                foreach ($package_info as $index => $v) {
+                    if ($index == 'create_date')
+                        echo "<tr><td>{$package_info_labels[$index]}</td><td>" . get_the_date() . "</td></tr>";
+                    else if ($index == 'update_date')
+                        echo "<tr><td>{$package_info_labels[$index]}</td><td>" . get_the_modified_date() . "</td></tr>";
+                    else
+                        echo "<tr><td>{$package_info_labels[$index]}</td><td>" . get_post_meta(get_the_ID(), '__wpdm_' . $index, true) . "</td></tr>";
+                }
+            }
+            echo "{$download_link}</table></div>";
+        } else {
+            echo "<div class='w3eden'><div class='list-group package-info-list'>";
+
+            if(is_array($package_info)){
+                foreach($package_info as $index => $v){
+                    if($index=='create_date')
+                        echo "<div class='list-group-item'><div class='media'><div class='pull-left'><i class='fa fa-calendar'></i></div><div class='media-body'><strong>{$package_info_labels[$index]}</strong><br/>".get_the_date()."</div></div></div>";
+                    else if($index=='update_date')
+                        echo "<div class='list-group-item'><div class='media'><div class='pull-left'><i class='fa fa-calendar'></i></div><div class='media-body'><strong>{$package_info_labels[$index]}</strong><br/>".get_the_modified_date()."</div></div></div>";
+                    else
+                        echo "<div class='list-group-item'><div class='media'><div class='pull-left'><i class='fa fa-{$package_info_icons[$index]}'></i></div><div class='media-body'><strong>{$package_info_labels[$index]}</strong><br/>".get_post_meta(get_the_ID(), '__wpdm_'.$index, true)."</div></div></div>";
+                }
+            }
+
+            echo "<div class='list-group-item'>{$download_link}</div></div>";
         }
 
-        echo "{$download_link}</table></div>";
+
         echo $after_widget;
         wp_reset_query();
     }
@@ -472,6 +465,7 @@ class wpdm_packageinfo_widget extends WP_Widget {
     function form($instance) {
         if(isset($instance['title']))
             $title = esc_attr($instance['title']);
+        else $title = '';
         if(isset($instance['pinfo']))
             $package_info = $instance['pinfo'];
 
@@ -486,12 +480,13 @@ class wpdm_packageinfo_widget extends WP_Widget {
             <label for="<?php echo $this->get_field_id('scat'); ?>"><?php _e('Fields to Show:','wpdmpro'); ?></label>
 
             <ul>
-                <li><label><input type="checkbox" value="download_count" <?php checked(isset($package_info['download_count']), 1) ?> name="<?php echo $this->get_field_name('pinfo'); ?>[download_count]"> Download Count</label></li>
-                <li><label><input type="checkbox" value="view_count" <?php checked(isset($package_info['view_count']), 1) ?> name="<?php echo $this->get_field_name('pinfo'); ?>[view_count]"> View Count</label></li>
-                <li><label><input type="checkbox" value="create_date" <?php checked(isset($package_info['create_date']), 1) ?> name="<?php echo $this->get_field_name('pinfo'); ?>[create_date]"> Publish Date</label></li>
-                <li><label><input type="checkbox" value="update_date" <?php checked(isset($package_info['update_date']), 1) ?> name="<?php echo $this->get_field_name('pinfo'); ?>[update_date]"> Update Date</label></li>
-                <li><label><input type="checkbox" value="download_link" <?php checked(isset($package_info['package_size']), 1) ?> name="<?php echo $this->get_field_name('pinfo'); ?>[package_size]"> Package Size</label></li>
-                <li><label><input type="checkbox" value="download_link" <?php checked(isset($package_info['download_link']), 1) ?> name="<?php echo $this->get_field_name('pinfo'); ?>[download_link]"> Download Link</label></li>
+                <li><label><input type="checkbox" value="download_count" <?php checked(isset($package_info['download_count']), 1) ?> name="<?php echo $this->get_field_name('pinfo'); ?>[download_count]"> <?php _e('Download Count','wpdmpro'); ?></label></li>
+                <li><label><input type="checkbox" value="view_count" <?php checked(isset($package_info['view_count']), 1) ?> name="<?php echo $this->get_field_name('pinfo'); ?>[view_count]"> <?php _e('View Count','wpdmpro'); ?></label></li>
+                <li><label><input type="checkbox" value="create_date" <?php checked(isset($package_info['create_date']), 1) ?> name="<?php echo $this->get_field_name('pinfo'); ?>[create_date]"> <?php _e('Publish Date','wpdmpro'); ?></label></li>
+                <li><label><input type="checkbox" value="update_date" <?php checked(isset($package_info['update_date']), 1) ?> name="<?php echo $this->get_field_name('pinfo'); ?>[update_date]"> <?php _e('Update Date','wpdmpro'); ?></label></li>
+                <li><label><input type="checkbox" value="download_link" <?php checked(isset($package_info['package_size']), 1) ?> name="<?php echo $this->get_field_name('pinfo'); ?>[package_size]"> <?php _e('Package Size','wpdmpro'); ?></label></li>
+                <li><label><input type="checkbox" value="download_link" <?php checked(isset($package_info['download_link']), 1) ?> name="<?php echo $this->get_field_name('pinfo'); ?>[download_link]"> <?php _e('Download Link','wpdmpro'); ?></label></li>
+                <li><hr/><?php _e('Style','wpdmpro'); ?>:<br/><label style="font-weight: 900"><input type="checkbox" value="1" <?php checked(isset($instance['table']), 1) ?> name="<?php echo $this->get_field_name('table'); ?>"> <?php _e('Tabular View','wpdmpro'); ?></label></li>
             </ul>
 
 

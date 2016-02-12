@@ -387,7 +387,7 @@ ul#navigation {
 }
 #wpdm-wrapper-panel > .panel-heading .btn{ font-weight: 900; }
 #wpdm-wrapper-panel > .panel-heading{
-    border-radius: 0;width: calc( 100% - 160px);position: fixed;z-index: 99999;
+    border-radius: 0;width: calc( 100% - 160px);position: fixed;z-index: 99999;top: 30px;
 }
 #wpdm-wrapper-panel .nav-wrapper-tabs{
     padding-top: 80px;
@@ -454,3 +454,5 @@ ul#navigation {
     color: #1E78C6;
 }
 .w3eden h3.panel-heading input[type=checkbox]{ margin: -2px 5px 0 0px !important;}
+.w3eden .form-group fieldset{ border: 1px solid #dddddd; padding: 10px 15px; }
+.w3eden .form-group fieldset legend{ border-bottom: 1px solid #dddddd; font-size: 9pt; float: left; width: 100%; padding-bottom: 10px; }

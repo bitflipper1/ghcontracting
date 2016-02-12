@@ -4,10 +4,9 @@ Plugin Name: Download Manager
 Plugin URI: http://www.wpdownloadmanager.com/purchases/
 Description: Manage, Protect and Track File Downloads from your WordPress site
 Author: Shaon
-Version: 2.8.9
+Version: 4.5.4
 Author URI: http://www.wpdownloadmanager.com/
 */
-
 
 namespace WPDM;
 
@@ -15,7 +14,7 @@ namespace WPDM;
 if(!isset($_SESSION))
 @session_start();
 
-define('WPDM_Version','2.8.9');
+define('WPDM_Version','4.5.4');
 
 $content_dir = str_replace('\\','/',WP_CONTENT_DIR);
 
@@ -40,7 +39,7 @@ include_once(dirname(__FILE__) . "/wpdm-functions.php");
 include(dirname(__FILE__)."/wpdm-core.php");
 
 
-ini_set('upload_tmp_dir',UPLOAD_DIR.'/cache/');
+@ini_set('upload_tmp_dir',UPLOAD_DIR.'/cache/');
 
 if(!$_POST)    $_SESSION['download'] = 0;
 
@@ -61,6 +60,7 @@ class WordPressDownloadManager{
 
         spl_autoload_register( array( $this, 'AutoLoad' ) );
 
+        new \WPDM\AuthorDashboard();
         new \WPDM\libs\UserDashboard();
         new \WPDM\libs\Apply();
         new \WPDM\admin\WordPressDownloadManagerAdmin();
@@ -107,6 +107,10 @@ class WordPressDownloadManager{
         }
 
 
+        if(get_option('_wpdm_etpl')==''){
+            update_option('_wpdm_etpl',array('title'=>'Your download link','body'=>@file_get_contents(dirname(__FILE__).'/tpls/email-templates/wpdm-email-lock-template.html')));
+        }
+
         $this->RegisterPostTypeTaxonomy();
         flush_rewrite_rules();
         self::CreateDir();
@@ -127,22 +131,26 @@ class WordPressDownloadManager{
     {
         $labels = array(
             'name' => __('Downloads', 'wpdmpro'),
-            'singular_name' => __('File', 'wpdmpro'),
+            'singular_name' => __('Package', 'wpdmpro'),
             'add_new' => __('Add New', 'wpdmpro'),
-            'add_new_item' => __('Add New File', 'wpdmpro'),
-            'edit_item' => __('Edit File', 'wpdmpro'),
-            'new_item' => __('New File', 'wpdmpro'),
-            'all_items' => __('All Files', 'wpdmpro'),
-            'view_item' => __('View File', 'wpdmpro'),
-            'search_items' => __('Search Files', 'wpdmpro'),
-            'not_found' => __('No File Found', 'wpdmpro'),
-            'not_found_in_trash' => __('No Files found in Trash', 'wpdmpro'),
+            'add_new_item' => __('Add New Package', 'wpdmpro'),
+            'edit_item' => __('Edit Package', 'wpdmpro'),
+            'new_item' => __('New Package', 'wpdmpro'),
+            'all_items' => __('All Packages', 'wpdmpro'),
+            'view_item' => __('View Package', 'wpdmpro'),
+            'search_items' => __('Search Packages', 'wpdmpro'),
+            'not_found' => __('No Package Found', 'wpdmpro'),
+            'not_found_in_trash' => __('No Packages found in Trash', 'wpdmpro'),
             'parent_item_colon' => '',
             'menu_name' => __('Downloads', 'wpdmpro')
 
         );
 
-
+        $tslug = get_option('__wpdm_purl_base', 'download');
+        if(!strpos("_$tslug", "%"))
+            $slug = sanitize_title($tslug);
+        else
+            $slug = $tslug;
         $args = array(
             'labels' => $labels,
             'public' => true,
@@ -151,7 +159,7 @@ class WordPressDownloadManager{
             'show_in_menu' => true,
             'show_in_nav_menus' => true,
             'query_var' => true,
-            'rewrite' => array('slug' => 'download', 'with_front' => (bool)get_option('__wpdm_purl_with_front', false)), //get_option('__wpdm_purl_base','download')
+            'rewrite' => array('slug' => $slug, 'with_front' => (bool)get_option('__wpdm_purl_with_front', false)), //get_option('__wpdm_purl_base','download')
             'capability_type' => 'post',
             'has_archive' => (get_option('__wpdm_has_archive', false)==false?false:sanitize_title(get_option('__wpdm_archive_page_slug', 'all-downloads'))),
             'hierarchical' => false,
@@ -186,7 +194,7 @@ class WordPressDownloadManager{
             'show_ui' => true,
             'show_admin_column' => true,
             'query_var' => true,
-            'rewrite' => array('slug' =>  'download-category'),
+            'rewrite' => array('slug' => sanitize_title(get_option('__wpdm_curl_base', 'download-category'))),
         );
 
         register_taxonomy('wpdmcategory', array('wpdmpro'), $args);
@@ -256,6 +264,11 @@ class WordPressDownloadManager{
             wp_enqueue_script('wpdm-datatable', plugins_url('/download-manager/assets/js/jquery.dataTables.min.js'), array('jquery'));
         }
 
+        if(get_post_type()=='wpdmpro'){
+            wp_enqueue_script("nivo-lightbox", plugins_url('/download-manager/assets/js/nivo-lightbox.min.js'), array('jquery'));
+            wp_enqueue_style("nivo-lightbox", plugins_url('/download-manager/assets/css/nivo-lightbox.css'));
+            wp_enqueue_style("nivo-lightbox-theme", plugins_url('/download-manager/assets/css/themes/default/default.css'));
+        }
 
         if (!in_array('wpdm-bootstrap-css', $wpdmss))
             wp_enqueue_style('wpdm-bootstrap', plugins_url('/download-manager/assets/bootstrap/css/bootstrap.css'));
@@ -267,6 +280,7 @@ class WordPressDownloadManager{
         if (!in_array('wpdm-bootstrap-js', $wpdmss))
             wp_enqueue_script('wpdm-bootstrap', plugins_url('/download-manager/assets/bootstrap/js/bootstrap.min.js'), array('jquery'));
 
+        wp_enqueue_script('jquery-cookie', plugins_url('/download-manager/assets/js/jquery.cookie.js'), array('jquery'));
         wp_enqueue_script('frontjs', plugins_url('/download-manager/assets/js/front.js'), array('jquery'));
 
         wp_enqueue_script('jquery-choosen', plugins_url('/download-manager/assets/js/chosen.jquery.min.js'), array('jquery'));
@@ -299,6 +313,7 @@ class WordPressDownloadManager{
             <script>
                 jQuery(function($){
                     $.get('<?php echo 'index.php?_nonce='.wp_create_nonce('__wpdm_view_count').'&id='.get_the_ID(); ?>');
+                    $('a.wpdm-lightbox').nivoLightbox();
                 });
             </script>
             <?php
